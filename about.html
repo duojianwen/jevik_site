@@ -3,101 +3,80 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title data-i18n="meta.title.about">About — Jevik</title>
-<meta name="description" content="" data-i18n="meta.desc.about" data-i18n-attr="content">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/styles.css">
-<script src="assets/js/i18n.js" defer></script>
-<script src="assets/js/main.js" defer></script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23ff8a3d'/%3E%3Cstop offset='1' stop-color='%233f8cff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Ctext x='32' y='44' font-family='sans-serif' font-weight='800' font-size='36' fill='white' text-anchor='middle'%3EJ%3C/text%3E%3C/svg%3E">
+<title>About — Jevik</title>
+<meta name="description" content="I'm Jevik, a software developer passionate about building scalable, reliable, and thoughtful systems.">
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
-
-<nav class="nav-float wrap">
-  <a class="nav-logo" href="index.html" aria-label="Jevik home"><span class="chrome chrome-warm chrome-3d" style="font-size:30px;">JEVIK</span></a>
+<nav class="nav nav-chrome"><div class="wrap"><div class="nav-inner">
+  <a href="index.html" class="logo-3d">JEVIK</a>
   <div class="nav-links">
     <a href="index.html" data-i18n="nav.home">Home</a>
-    <a href="about.html" class="active" data-i18n="nav.about_u">About</a>
-    <a href="projects.html" data-i18n="nav.projects_u">Projects</a>
-    <a href="blog.html" data-i18n="nav.blog_u">Blog</a>
-    <a href="contact.html" data-i18n="nav.contact_u">Contact</a>
+    <a href="about.html" class="pill active" style="text-transform:uppercase" data-i18n="nav.about">About</a>
+    <a href="projects.html" data-i18n="nav.projects">Projects</a>
+    <a href="home-alt.html" data-i18n="nav.work">Work</a>
+    <a href="contact.html" data-i18n="nav.contact">Contact</a>
   </div>
-  <div class="nav-cta">
-      <button class="burger" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
-    <div class="lang-toggle" role="group" aria-label="Language">
-      <button type="button" data-lang="en" class="on">EN</button>
-      <button type="button" data-lang="zh">中文</button>
-    </div>
-    <a class="btn btn-ghost btn-sm" href="contact.html" data-i18n="nav.getintouch">Get in Touch</a>
+  <div style="display:flex;gap:10px;align-items:center">
+    <button class="lang-btn" data-lang-toggle>中文</button>
+    <a class="btn btn-chrome hide-m" href="contact.html" data-i18n="about.cta" style="padding:12px 26px">Get in Touch</a>
+    <button class="burger" data-burger aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
-</nav>
+  <div class="mobile-menu">
+    <a href="index.html" data-i18n="nav.home">Home</a>
+    <a href="about.html" data-i18n="nav.about">About</a>
+    <a href="projects.html" data-i18n="nav.projects">Projects</a>
+    <a href="home-alt.html" data-i18n="nav.work">Work</a>
+    <a href="contact.html" data-i18n="nav.contact">Contact</a>
+  </div>
+</div></div></nav>
 
-<main class="wrap">
-  <div class="about-grid">
-    <!-- LEFT -->
-    <div>
-      <div class="photo-frame rv">
-        <span class="ring" style="width:70px;height:70px;top:-24px;right:36px;"></span>
-        <span class="ring" style="width:44px;height:44px;bottom:-16px;left:52px;"></span>
-        <div class="ph"><span class="mono">J</span></div>
-      </div>
-      <div class="about-name chrome chrome-warm chrome-3d rv d1">JEVIK</div>
-      <p class="about-tags rv d1" data-i18n="about.tags">DEVELOPER — BUILDER — OPEN SOURCE</p>
-      <h2 class="about-title chrome chrome-warm chrome-3d rv d2" data-i18n="about.title">ABOUT</h2>
-      <div class="about-bio rv d2">
-        <p data-i18n="about.bio1">I'm Jevik, a backend engineer working on LLM applications — RAG, agents, and workflow orchestration. I care about systems that survive production: clean architecture, honest evals, and boring reliability.</p>
-        <p data-i18n="about.bio2">Day to day I work with Java Spring Cloud microservices and Python LLM stacks. On the side I build in public: automation pipelines, AIOps experiments, and notes from the trenches.</p>
-      </div>
+<main class="wrap about-grid">
+  <div class="about-left rv">
+    <div class="photo-frame">
+      <div class="ph"><span class="init">J</span></div>
     </div>
-
-    <!-- RIGHT -->
-    <div>
-      <h2 class="chrome-h chrome chrome-warm chrome-3d rv" data-i18n="about.timeline">CAREER TIMELINE</h2>
-      <div class="timeline">
-        <div class="tl-item rv">
-          <span class="tl-year">2025</span>
-          <h3 data-i18n="about.t1t">Independent Engineer · LLM Applications</h3>
-          <p data-i18n="about.t1d">Shipping RAG systems, agents, and content automation — building in public.</p>
-        </div>
-        <div class="tl-item rv d1">
-          <span class="tl-year">2022</span>
-          <h3 data-i18n="about.t2t">Backend Engineer · Microservices</h3>
-          <p data-i18n="about.t2d">Java Spring Cloud services: APIs, gateways, and the observability to keep them honest.</p>
-        </div>
-        <div class="tl-item rv d2">
-          <span class="tl-year">2020</span>
-          <h3 data-i18n="about.t3t">Software Engineer · Backend</h3>
-          <p data-i18n="about.t3d">Core backend APIs in Python; CI/CD pipelines and reliability work.</p>
-        </div>
-      </div>
-
-      <h2 class="chrome-h chrome chrome-warm chrome-3d rv" data-i18n="about.skills">SKILLS</h2>
-      <div class="skill-grid">
-        <div class="skill-tile rv"><div class="ic">Py</div><div class="nm">Python</div></div>
-        <div class="skill-tile rv d1"><div class="ic">Jv</div><div class="nm">Java</div></div>
-        <div class="skill-tile rv d2"><div class="ic">Sp</div><div class="nm">Spring</div></div>
-        <div class="skill-tile rv d3"><div class="ic">Rg</div><div class="nm">RAG</div></div>
-        <div class="skill-tile rv"><div class="ic">Ag</div><div class="nm">Agents</div></div>
-        <div class="skill-tile rv d1"><div class="ic">Wf</div><div class="nm">Workflow</div></div>
-        <div class="skill-tile rv d2"><div class="ic">Dk</div><div class="nm">Docker</div></div>
-        <div class="skill-tile rv d3"><div class="ic">K8</div><div class="nm">K8s</div></div>
-      </div>
-    </div>
+    <div class="who chrome-silver">JEVIK</div>
+    <div class="roles" data-i18n="about.roles">DEVELOPER — BUILDER — OPEN SOURCE</div>
+    <h2 class="sec chrome-h" data-i18n="about.title">About</h2>
+    <p class="bio" data-i18n="about.bio">I'm Jevik, a software developer passionate about building scalable, reliable, and thoughtful systems. I focus on creating clean, maintainable solutions that solve real problems—from cloud infrastructure to developer tools. Today I work on open-source tooling, cloud-native apps, and backend systems, always aiming for elegant code and thoughtful design. Based in Portland, Oregon.</p>
   </div>
 
-  <p class="about-foot rv"><span data-i18n="about.foot">Available for freelance &amp; collaborations</span> — <b>jevik.dev</b> — <b>hello@jevik.dev</b></p>
+  <div class="rv">
+    <h2 class="chrome-h" data-i18n="about.timeline">Career Timeline</h2>
+    <div class="timeline">
+      <div class="t-item"><span class="t-year">2025</span>
+        <h3 data-i18n="about.j1t">Founder &amp; Open Source Maintainer</h3>
+        <p data-i18n="about.j1d">Launched open-source devtool library with 12k+ GitHub stars; Speaker at DevConf 2025</p></div>
+      <div class="t-item"><span class="t-year">2024</span>
+        <h3 data-i18n="about.j2t">Lead Engineer at Arcstream</h3>
+        <p data-i18n="about.j2d">Led platform scaling to 2M+ users; migrated architecture to Kubernetes on AWS</p></div>
+      <div class="t-item"><span class="t-year">2022</span>
+        <h3 data-i18n="about.j3t">Senior Developer at NovaLabs</h3>
+        <p data-i18n="about.j3d">Built real-time analytics dashboard using React &amp; TypeScript; improved performance by 60%</p></div>
+      <div class="t-item"><span class="t-year">2020</span>
+        <h3 data-i18n="about.j4t">Software Engineer at Cloudforge</h3>
+        <p data-i18n="about.j4d">Developed core backend APIs in Python; improved CI/CD pipeline and reliability</p></div>
+    </div>
+
+    <h2 class="chrome-h" style="margin-top:34px" data-i18n="about.skills">Skills</h2>
+    <div class="skills-grid">
+      <div class="skill"><span class="ic">🐍</span><span class="nm">Python</span></div>
+      <div class="skill"><span class="ic">📘</span><span class="nm">TypeScript</span></div>
+      <div class="skill"><span class="ic">⚛️</span><span class="nm">React</span></div>
+      <div class="skill"><span class="ic">☁️</span><span class="nm">AWS</span></div>
+      <div class="skill"><span class="ic">🐳</span><span class="nm">Docker</span></div>
+      <div class="skill"><span class="ic">☸️</span><span class="nm">Kubernetes</span></div>
+      <div class="skill"><span class="ic">🐘</span><span class="nm">PostgreSQL</span></div>
+      <div class="skill"><span class="ic">◈</span><span class="nm">GraphQL</span></div>
+    </div>
+  </div>
 </main>
 
-<footer class="site">
-  <div class="wrap">
-    <p>© 2026 Jevik · <span data-i18n="footer.tag">Designed &amp; hand-coded with care</span></p>
-    <div class="flinks">
-      <a href="https://github.com/jevik" target="_blank" rel="noopener">GitHub</a>
-      <a href="contact.html" data-i18n="nav.contact2">Contact</a>
-    </div>
-  </div>
-</footer>
-
+<footer class="about-foot wrap rv"><span data-i18n="about.foot">Available for freelance &amp; collaborations</span> — jevik.dev — hello@jevik.dev</footer>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>

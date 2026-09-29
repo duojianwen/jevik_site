@@ -1,343 +1,167 @@
-/* Jevik site i18n — English / Chinese dictionary.
-   Usage: elements carry data-i18n="key"; placeholders use data-i18n-ph="key";
-   meta attributes use data-i18n + data-i18n-attr="content".
-   Language persists in localStorage["jevik-lang"]; default "en". */
-
-window.JEVIK_I18N = {
+/* i18n dictionary — EN copy matches the 8 finalized mockups verbatim. */
+const I18N = {
 en: {
-  "meta.title.index": "Jevik — Backend × LLM Engineer",
-  "meta.desc.index": "Jevik builds reliable backend systems and LLM-powered products: RAG, agents, workflow orchestration.",
-  "meta.title.projects": "Projects — Jevik",
-  "meta.desc.projects": "Selected projects by Jevik: AI agents, RAG systems, backend services, automation.",
-  "meta.title.detail": "AIOps Agent — Jevik",
-  "meta.desc.detail": "Case study: AIOps Agent — autonomous incident triage, root-cause analysis, report drafting.",
-  "meta.title.blog": "Blog — Jevik",
-  "meta.desc.blog": "Notes on engineering, systems, and building better software — written by Jevik.",
-  "meta.title.article": "RAG in Production: What Actually Breaks — Jevik",
-  "meta.desc.article": "Chunking, retrieval, evals — the unglamorous parts that decide whether your RAG survives real users.",
-  "meta.title.about": "About — Jevik",
-  "meta.desc.about": "About Jevik: backend engineer working on LLM applications — RAG, agents, workflow orchestration.",
-  "meta.title.contact": "Contact — Jevik",
-  "meta.desc.contact": "Get in touch with Jevik — open for freelance and collaborations.",
-
-  "nav.about": "About", "nav.projects": "Projects", "nav.blog": "Blog", "nav.contact": "Contact",
-  "nav.home": "Home", "nav.work": "Work", "nav.overview": "Overview", "nav.articles": "Articles",
-  "nav.about_u": "About", "nav.projects_u": "Projects", "nav.blog_u": "Blog", "nav.contact_u": "Contact",
-  "nav.hire": "Hire Me", "nav.getintouch": "Get in Touch", "nav.contact2": "Contact",
-
-  "hero.role": "Backend × LLM Engineer",
-  "hero.desc": "I build reliable backend systems and LLM-powered products — RAG, agents, and workflow orchestration that survive production.",
-  "hero.view": "View Projects", "hero.touch": "Get in Touch", "hero.touch2": "Get in Touch",
-  "hero.chip": "Open for collaborations",
-
-  "home.sec_projects": "Projects", "home.viewall": "View all",
-  "home.p1cat": "AI · Agent", "home.p1t": "AIOps Agent",
-  "home.p1d": "An autonomous agent that triages alerts, finds root causes, and drafts incident reports.",
-  "home.p2cat": "Automation", "home.p2t": "Content Pipeline",
-  "home.p2d": "From idea to published post — an automated pipeline for content creation and distribution.",
-  "home.p3cat": "RAG", "home.p3t": "Knowledge Base",
-  "home.p3d": "Local-first knowledge base with hybrid retrieval for fast, grounded answers.",
-  "home.sec_articles": "Articles", "home.allarticles": "All articles",
-  "home.a1date": "Sep 2026 · 8 min read", "home.a1t": "RAG in Production: What Actually Breaks",
-  "home.a1d": "Chunking, retrieval, evals — the unglamorous parts that decide whether your RAG survives real users.",
-  "home.a2date": "Aug 2026 · 6 min read", "home.a2t": "Building Agents That Don't Hallucinate Their Tools",
-  "home.a2d": "Guardrails, schemas, and verification loops for agents you can actually trust.",
-  "home.a3date": "Jul 2026 · 10 min read", "home.a3t": "My Content Automation Pipeline, End to End",
-  "home.a3d": "How I turned scattered ideas into a daily publishing pipeline with a few Python scripts.",
-  "home.sec_contact": "Contact",
-  "home.contact_lead": "Let's work together — open for freelance & collabs.",
-
-  "footer.tag": "Designed & hand-coded with care",
-  "footer.tag2": "Crafted with precision",
-  "footer.tag3": "Built with focus on performance & clarity",
-
-  "projects.eyebrow": "Selected work", "projects.title": "Projects",
-  "projects.sub": "A curated collection of builds, experiments, and products — designed & engineered with focus on performance, usability, and clean architecture.",
-  "projects.filter": "FILTER:", "projects.f_all": "All", "projects.f_agent": "AI Agent",
-  "projects.f_rag": "RAG", "projects.f_backend": "Backend", "projects.f_auto": "Automation",
-  "projects.p1t": "AIOps Agent",
-  "projects.p1d": "Autonomous incident triage: alert noise reduction, root-cause analysis, and report drafting.",
-  "projects.p2t": "Content Pipeline",
-  "projects.p2d": "Idea → draft → publish, fully automated across X and Xiaohongshu.",
-  "projects.p3t": "Knowledge Base",
-  "projects.p3d": "Hybrid retrieval over local documents with grounded citations and fast answers.",
-  "projects.p4t": "API Gateway",
-  "projects.p4d": "Microservice gateway with auth, rate limiting, and end-to-end observability.",
-  "projects.p5t": "Doc QA Assistant",
-  "projects.p5d": "Ask questions over your documents, get answers with sources attached.",
-  "projects.p6t": "Deploy Toolbox",
-  "projects.p6d": "One-command packaging, release, and rollback tooling for backend services.",
-  "projects.count": "6 Projects",
-
-  "detail.eyebrow": "Project showcase · Case study", "detail.title": "AIOps Agent",
-  "detail.desc": "An autonomous agent for production incidents: it triages alert storms, traces root causes across services, and drafts the incident report before you finish your coffee.",
-  "detail.gallery": "Screenshot Gallery", "detail.gallery_sub": "Key interfaces designed for clarity and speed",
-  "detail.g1t": "Alert Triage", "detail.g1d": "Noise reduction & severity ranking",
-  "detail.g2t": "Root-Cause Graph", "detail.g2d": "Tracing faults across services",
-  "detail.g3t": "Incident Report", "detail.g3d": "Auto-drafted, human-approved",
-  "detail.s1": "Alert noise reduced", "detail.s2": "Root-cause time",
-  "detail.s3": "Always watching", "detail.s4": "Report coverage",
-  "detail.role": "Role: Backend × LLM Engineer", "detail.role2": "Design & Engineering",
-  "detail.t1": "Agent Design", "detail.t2": "RAG", "detail.t3": "Production Hardening",
-
-  "blog.title": "Insights for modern developers",
-  "blog.sub": "Thoughts on engineering, systems, and building better software — written by Jevik",
-  "blog.f_all": "All", "blog.f_ai": "AI", "blog.f_backend": "Backend",
-  "blog.f_rag": "RAG", "blog.f_devops": "DevOps",
-  "blog.featured": "Featured post", "blog.feat_t": "RAG in Production: What Actually Breaks",
-  "blog.feat_meta": "Sep 2026 · 8 min read",
-  "blog.feat_d": "Chunking, retrieval, evals — the unglamorous parts that decide whether your RAG survives real users. Notes from the trenches.",
-  "blog.read": "Read article", "blog.latest": "Latest Articles",
-  "blog.c_ai": "AI", "blog.a1t": "Building Agents That Don't Hallucinate Their Tools",
-  "blog.a1m": "Aug 2026 · 6 min read",
-  "blog.c_backend": "Backend", "blog.a2t": "Designing APIs That Survive Version Three",
-  "blog.a2m": "Jul 2026 · 7 min read",
-  "blog.c_rag": "RAG", "blog.a3t": "Hybrid Search: When BM25 Beats Vectors",
-  "blog.a3m": "Jun 2026 · 5 min read",
-  "blog.c_devops": "DevOps", "blog.a4t": "My Content Automation Pipeline, End to End",
-  "blog.a4m": "May 2026 · 10 min read",
-
-  "article.kicker": "RAG · Production notes",
-  "article.title": "RAG in Production: What Actually Breaks",
-  "article.role": "Engineer", "article.date": "Sep 2026", "article.read": "8 min read",
-  "article.p1": "Demos make RAG look easy: chunk some docs, embed them, wrap it in a chat UI, done. Production is where the demo goes to die — on weird PDFs, on questions nobody predicted, on retrieval that confidently returns the wrong paragraph.",
-  "article.p2": "After shipping a few of these systems, I've learned the failures cluster in three places: chunking, retrieval, and evaluation. Get those right and everything else is polish. Get them wrong and no prompt trick will save you.",
-  "article.quote": "Retrieval quality is a data problem wearing a model costume. Fix the corpus before you tune the prompt.",
-  "article.h2": "Start with the corpus, not the model",
-  "article.p3": "Most broken RAG systems I see don't have a model problem — they have a garbage-in problem. Scanned PDFs with mangled tables, duplicated Confluence pages, five versions of the same runbook. The retriever dutifully returns junk, and the model dutifully summarizes it.",
-  "article.p4": "Structure-aware chunking with overlap beats naive fixed-size splits almost every time. And metadata — source, section, date — is what lets you filter and cite instead of guessing.",
-  "article.p5": "Next: hybrid retrieval. Pure vector search misses exact terms; pure keyword search misses meaning. Combine them, rerank the top candidates, and measure everything with a small golden eval set. If you can't measure a change, you can't ship it.",
-  "article.prev": "← Previous",
-  "article.prev_t": "Building Agents That Don't Hallucinate Their Tools",
-  "article.prev_d": "Guardrails, schemas, and verification loops.",
-  "article.next": "Next article →",
-  "article.next_t": "Hybrid Search: When BM25 Beats Vectors",
-  "article.next_d": "Old-school keyword search still earns its place.",
-
-  "about.tags": "DEVELOPER — BUILDER — OPEN SOURCE", "about.title": "ABOUT",
-  "about.bio1": "I'm Jevik, a backend engineer working on LLM applications — RAG, agents, and workflow orchestration. I care about systems that survive production: clean architecture, honest evals, and boring reliability.",
-  "about.bio2": "Day to day I work with Java Spring Cloud microservices and Python LLM stacks. On the side I build in public: automation pipelines, AIOps experiments, and notes from the trenches.",
-  "about.timeline": "CAREER TIMELINE",
-  "about.t1t": "Independent Engineer · LLM Applications",
-  "about.t1d": "Shipping RAG systems, agents, and content automation — building in public.",
-  "about.t2t": "Backend Engineer · Microservices",
-  "about.t2d": "Java Spring Cloud services: APIs, gateways, and the observability to keep them honest.",
-  "about.t3t": "Software Engineer · Backend",
-  "about.t3d": "Core backend APIs in Python; CI/CD pipelines and reliability work.",
-  "about.skills": "SKILLS",
-  "about.foot": "Available for freelance & collaborations",
-
-  "contact.dev": "developer · Jevik",
-  "contact.title": "Let's Build Something Great Together",
-  "contact.sub": "Have a project in mind or want to collaborate? Drop me a message and I'll get back to you within 24 hours.",
-  "contact.info": "Contact Info", "contact.email_k": "Email",
-  "contact.loc_k": "Location", "contact.loc_v": "Remote · UTC+8",
-  "contact.social": "Social Links",
-  "contact.avail_k": "Availability Status",
-  "contact.avail_v": "Available for freelance work",
-  "contact.avail_s": "Open to new projects · Typical response: within 24h",
-  "contact.form_t": "Send a Message",
-  "contact.f_name": "Your Name", "contact.f_name_ph": "e.g. Alex Morgan",
-  "contact.f_email": "Email Address",
-  "contact.f_msg": "Your Message",
-  "contact.f_msg_ph": "Tell me about your project, goals, timeline, or any questions...",
-  "contact.send": "Send Message",
-  "contact.note": "I usually reply within 24 hours. No spam, ever.",
-  "contact.lock": "🔒 Your information is protected & confidential",
-
-  "form.empty": "Please fill in your name, email, and message.",
-  "form.sent": "Your email client is opening — just hit send."
+"nav.about":"About","nav.projects":"Projects","nav.articles":"Articles","nav.blog":"Blog","nav.contact":"Contact","nav.hire":"Hire Me","nav.subscribe":"Subscribe","nav.work":"Work","nav.home":"Home",
+"home.role":"Developer & Creative Engineer",
+"home.lead":"I design and build performant, accessible web experiences—crafted with modern technologies, motion, and clarity.",
+"home.viewProjects":"View Projects","home.getInTouch":"Get in Touch","home.projects":"Projects","home.viewAll":"View all",
+"home.p1d":"Real-time analytics dashboard with interactive data viz and responsive UI.",
+"home.p2d":"A lightweight glassmorphism component library for React & Tailwind.",
+"home.p3d":"Scalable REST API for modern apps with auth, rate limiting, and docs.",
+"home.articles":"Articles",
+"home.a1t":"Building Performant UIs with 3D & Glassmorphism","home.a1d":"Techniques for using glass, depth, and motion without sacrificing speed.",
+"home.a2t":"From Idea to Ship: My Web Build Workflow","home.a2d":"My toolkit, process, and principles for shipping reliable products fast.",
+"home.a3t":"Color in Code: Gradients that Actually Work","home.a3d":"How to blend orange and blue gradients for accessibility and vibrancy.",
+"home.contact":"Contact","home.contactSub":"Let's work together — open for freelance & collabs.",
+"home.location":"Location","home.based":"Based in Toronto, Canada","home.socials":"Socials","home.builtWith":"Built with Next.js & Tailwind",
+"alt.s1":"Projects Delivered","alt.s2":"Years Experience","alt.s3":"Clients Worldwide","alt.s4":"Uptime & Reliability",
+"alt.featured":"Featured Projects","alt.viewAll":"View All Projects",
+"alt.f1t":"Orbit Dashboard — Analytics Platform","alt.f1d":"Real-time data insights with custom charts & live metrics",
+"alt.f2t":"Aether API — Realtime Backend","alt.f2d":"High-performance REST API built with Node & Go, scalable services",
+"alt.f3t":"Nova Mobile — Cross-platform App","alt.f3d":"iOS & Android app for productivity, 4.8★ rating on stores",
+"projects.sub":"Jevik · Full-Stack Developer","projects.title":"Projects",
+"projects.lede":"A curated collection of builds, experiments, and products — designed & engineered with focus on performance, usability, and clean architecture.",
+"projects.all":"All","projects.web":"Web","projects.mobile":"Mobile","projects.ai":"AI","projects.design":"Design",
+"projects.d1":"Real-time data visualization platform for ML pipelines with interactive graphs.",
+"projects.d2":"Modern open-source design system with accessible components and design tokens.",
+"projects.d3":"RESTful API gateway featuring authentication, rate-limiting, and analytics.",
+"projects.d4":"Analytics dashboard for SaaS metrics with live updates and KPI tracking.",
+"projects.d5":"Real-time chat application with end-to-end encryption and threaded conversations.",
+"projects.d6":"CLI tool for bundling, optimizing, and deploying modern web applications.",
+"projects.count":"12 Projects","projects.crafted":"Crafted with precision","projects.builtWith":"Built with modern web technologies",
+"detail.overview":"Overview","detail.cases":"Case Studies","detail.tag":"Project Showcase · Case Study","detail.title":"Nebula Analytics Dashboard",
+"detail.lede":"A real-time analytics platform built for scalable data insights and team collaboration. Designed and developed end-to-end to visualize complex datasets with low latency and intuitive UX for data teams.",
+"detail.gallery":"Screenshot Gallery","detail.gallerySub":"Key interfaces designed for clarity and speed",
+"detail.g1t":"Dashboard Overview","detail.g1d":"Real-time metrics & user activity feed",
+"detail.g2t":"Analytics Deep Dive","detail.g2d":"Custom filters & segmentation",
+"detail.g3t":"Settings & Integrations","detail.g3d":"Secure API & team access",
+"detail.m1":"Active Users","detail.m2":"Uptime Reliability","detail.m3":"Faster Load Time","detail.m4":"Avg Response Speed",
+"detail.role":"Role:","detail.roleV":"Full Stack Developer","detail.scope":"Product Design & Engineering",
+"detail.t1":"UI/UX Design","detail.t2":"Performance","detail.t3":"Scalable Architecture",
+"blog.title":"Insights for modern developers","blog.lede":"Thoughts on engineering, systems, and building better software — written by Jevik",
+"blog.all":"All","blog.webdev":"Web Dev","blog.systems":"Systems","blog.featured":"Featured Post",
+"blog.f1t":"Building a Real-Time Data Pipeline with Rust and WebSockets",
+"blog.f1d":"Exploring how to combine Rust's performance with WebSockets to stream data at scale, handling backpressure and low-latency delivery in production environments.",
+"blog.read":"Read article","blog.latest":"Latest Articles",
+"blog.p1t":"Optimizing Node.js Performance with Worker Threads",
+"blog.p2t":"Understanding Kubernetes Networking for Developers",
+"blog.p3t":"TypeScript Patterns for Safer APIs",
+"blog.builtWith":"Built with focus on performance & clarity",
+"article.guides":"Guides","article.title":"Optimizing Async Rust: Patterns for Zero-Cost Concurrency","article.role":"Developer",
+"article.p1":"Async Rust has matured into a powerful tool for building high-performance systems, but writing concurrent code that is both efficient and maintainable still requires careful design. In this post, we'll explore patterns that keep your async code fast, predictable, and free from hidden allocations.",
+"article.quote":"Performance isn't free. It's earned through thoughtful concurrency and thoughtful memory layout.",
+"article.p2":"The key is to avoid heap allocations in hot paths and to leverage Rust's zero-cost abstractions. By combining small executors with scoped tasks, you can retain full control while keeping overhead minimal.",
+"article.p3":"This pattern reduces contention by bounding concurrency to a fixed window while keeping the code readable and composable. We'll break down each piece and measure the performance impact in the next section.",
+"article.prev":"Previous","article.prevT":"Structuring Large-Scale TypeScript Projects","article.prevD":"Learn how to organize complex TS codebases with modular patterns and strict typing.",
+"article.next":"Next Article","article.nextT":"WASM vs Native: When to Offload to the Browser","article.nextD":"A practical guide to deciding when WebAssembly is the right tool for the job.",
+"article.builtWith":"Built with Rust + Next.js","article.rights":"All rights reserved",
+"about.cta":"Get in Touch","about.roles":"DEVELOPER — BUILDER — OPEN SOURCE","about.title":"About",
+"about.bio":"I'm Jevik, a software developer passionate about building scalable, reliable, and thoughtful systems. I focus on creating clean, maintainable solutions that solve real problems—from cloud infrastructure to developer tools. Today I work on open-source tooling, cloud-native apps, and backend systems, always aiming for elegant code and thoughtful design. Based in Portland, Oregon.",
+"about.timeline":"Career Timeline",
+"about.j1t":"Founder & Open Source Maintainer","about.j1d":"Launched open-source devtool library with 12k+ GitHub stars; Speaker at DevConf 2025",
+"about.j2t":"Lead Engineer at Arcstream","about.j2d":"Led platform scaling to 2M+ users; migrated architecture to Kubernetes on AWS",
+"about.j3t":"Senior Developer at NovaLabs","about.j3d":"Built real-time analytics dashboard using React & TypeScript; improved performance by 60%",
+"about.j4t":"Software Engineer at Cloudforge","about.j4d":"Developed core backend APIs in Python; improved CI/CD pipeline and reliability",
+"about.skills":"Skills","about.foot":"Available for freelance & collaborations",
+"contact.title":"Let's Build Something Great Together",
+"contact.lede":"Have a project in mind or want to collaborate? Drop me a message and I'll get back to you within 24 hours.",
+"contact.info":"Contact Info","contact.email":"Email","contact.location":"Location","contact.locV":"Tallinn, Estonia — UTC+2",
+"contact.socials":"Social Links","contact.availK":"Availability Status","contact.availV":"Available for freelance work","contact.availS":"Open to new projects · Typical response: within 24h",
+"contact.form":"Send a Message","contact.name":"Your Name","contact.namePh":"e.g. Alex Morgan","contact.emailAddr":"Email Address",
+"contact.msg":"Your Message","contact.msgPh":"Tell me about your project, goals, timeline, or any questions...",
+"contact.send":"Send Message","contact.note":"I usually reply within 24 hours. No spam, ever.","contact.privacy":"Your information is protected & confidential",
+"form.errName":"Please enter your name.","form.errEmail":"Please enter your email.","form.errEmailBad":"That email doesn't look right.","form.errMsg":"Please write a message."
 },
 zh: {
-  "meta.title.index": "Jevik — 后端 × LLM 工程师",
-  "meta.desc.index": "Jevik 构建可靠的后端系统与 LLM 应用：RAG、Agent、工作流编排。",
-  "meta.title.projects": "项目 — Jevik",
-  "meta.desc.projects": "Jevik 的精选项目：AI Agent、RAG 系统、后端服务、自动化。",
-  "meta.title.detail": "AIOps Agent — Jevik",
-  "meta.desc.detail": "案例：AIOps Agent——自主告警分诊、根因定位、报告起草。",
-  "meta.title.blog": "博客 — Jevik",
-  "meta.desc.blog": "关于工程、系统与构建更好软件的思考——Jevik 执笔。",
-  "meta.title.article": "RAG 落地：真正会挂的地方 — Jevik",
-  "meta.desc.article": "切分、检索、评估——这些不性感的环节决定你的 RAG 能不能活过真实用户。",
-  "meta.title.about": "关于 — Jevik",
-  "meta.desc.about": "关于 Jevik：做 LLM 应用的后端工程师——RAG、Agent、工作流编排。",
-  "meta.title.contact": "联系 — Jevik",
-  "meta.desc.contact": "联系 Jevik——接受 freelance 与合作。",
+"nav.about":"关于","nav.projects":"项目","nav.articles":"文章","nav.blog":"博客","nav.contact":"联系","nav.hire":"聘用我","nav.subscribe":"订阅","nav.work":"工作","nav.home":"首页",
+"home.role":"开发者与创意工程师",
+"home.lead":"我设计并构建高性能、无障碍的 Web 体验——用现代技术、动效与清晰表达精心打磨。",
+"home.viewProjects":"查看项目","home.getInTouch":"联系我","home.projects":"项目","home.viewAll":"查看全部",
+"home.p1d":"实时分析仪表盘，交互式数据可视化与响应式 UI。",
+"home.p2d":"轻量玻璃拟态组件库，面向 React 与 Tailwind。",
+"home.p3d":"为现代应用打造的可扩展 REST API，含认证、限流与文档。",
+"home.articles":"文章",
+"home.a1t":"用 3D 与玻璃拟态构建高性能 UI","home.a1d":"运用玻璃、纵深与动效且不牺牲速度的技巧。",
+"home.a2t":"从想法到上线：我的 Web 构建工作流","home.a2d":"我的工具箱、流程与原则，快速交付可靠产品。",
+"home.a3t":"代码中的色彩：真正好用的渐变","home.a3d":"如何调配橙蓝渐变，兼顾无障碍与活力。",
+"home.contact":"联系","home.contactSub":"一起合作吧——接受自由职业与协作。",
+"home.location":"地点","home.based":"位于加拿大多伦多","home.socials":"社交","home.builtWith":"基于 Next.js 与 Tailwind 构建",
+"alt.s1":"交付项目","alt.s2":"年经验","alt.s3":"全球客户","alt.s4":"可用性与可靠性",
+"alt.featured":"精选项目","alt.viewAll":"查看全部项目",
+"alt.f1t":"Orbit Dashboard — 分析平台","alt.f1d":"实时数据洞察，自定义图表与实时指标",
+"alt.f2t":"Aether API — 实时后端","alt.f2d":"基于 Node 与 Go 的高性能 REST API，可扩展服务",
+"alt.f3t":"Nova Mobile — 跨平台应用","alt.f3d":"iOS 与 Android 效率应用，商店评分 4.8★",
+"projects.sub":"Jevik · 全栈开发者","projects.title":"项目",
+"projects.lede":"精选的构建、实验与产品——以性能、可用性与清晰架构为核心设计与工程实现。",
+"projects.all":"全部","projects.web":"Web","projects.mobile":"移动","projects.ai":"AI","projects.design":"设计",
+"projects.d1":"面向 ML 流水线的实时数据可视化平台，交互式图表。",
+"projects.d2":"现代开源设计系统，无障碍组件与设计令牌。",
+"projects.d3":"RESTful API 网关，含认证、限流与分析。",
+"projects.d4":"SaaS 指标分析仪表盘，实时更新与 KPI 追踪。",
+"projects.d5":"实时聊天应用，端到端加密与话题分支。",
+"projects.d6":"现代 Web 应用的打包、优化与部署 CLI 工具。",
+"projects.count":"12 个项目","projects.crafted":"精心打磨","projects.builtWith":"基于现代 Web 技术构建",
+"detail.overview":"概览","detail.cases":"案例研究","detail.tag":"项目展示 · 案例研究","detail.title":"Nebula Analytics Dashboard",
+"detail.lede":"为可扩展的数据洞察与团队协作打造的实时分析平台。端到端设计与开发，以低延迟与直观 UX 为数据团队可视化复杂数据集。",
+"detail.gallery":"截图画廊","detail.gallerySub":"为清晰与速度而设计的关键界面",
+"detail.g1t":"仪表盘总览","detail.g1d":"实时指标与用户动态",
+"detail.g2t":"分析深挖","detail.g2d":"自定义筛选与分群",
+"detail.g3t":"设置与集成","detail.g3d":"安全的 API 与团队访问",
+"detail.m1":"活跃用户","detail.m2":"可用性","detail.m3":"加载提速","detail.m4":"平均响应",
+"detail.role":"角色：","detail.roleV":"全栈开发者","detail.scope":"产品设计与工程",
+"detail.t1":"UI/UX 设计","detail.t2":"性能","detail.t3":"可扩展架构",
+"blog.title":"给现代开发者的洞察","blog.lede":"关于工程、系统与构建更好软件的思考——由 Jevik 撰写",
+"blog.all":"全部","blog.webdev":"Web 开发","blog.systems":"系统","blog.featured":"精选文章",
+"blog.f1t":"用 Rust 与 WebSocket 构建实时数据管道",
+"blog.f1d":"探索如何结合 Rust 的性能与 WebSocket 实现大规模数据流，处理生产环境中的背压与低延迟投递。",
+"blog.read":"阅读文章","blog.latest":"最新文章",
+"blog.p1t":"用 Worker Threads 优化 Node.js 性能",
+"blog.p2t":"开发者视角的 Kubernetes 网络",
+"blog.p3t":"更安全的 API 的 TypeScript 模式",
+"blog.builtWith":"以性能与清晰为核心构建",
+"article.guides":"指南","article.title":"优化异步 Rust：零成本并发模式","article.role":"开发者",
+"article.p1":"异步 Rust 已成熟为构建高性能系统的利器，但编写既高效又可维护的并发代码仍需精心设计。本文将探讨让异步代码快速、可预测且无隐藏分配的模式。",
+"article.quote":"性能不是免费的。它来自深思熟虑的并发与内存布局。",
+"article.p2":"关键是避免热路径上的堆分配，并利用 Rust 的零成本抽象。通过小执行器与 scoped 任务的组合，你可以在保持开销最小的同时完全掌控。",
+"article.p3":"该模式将并发限制在固定窗口内减少竞争，同时保持代码可读与可组合。下一节我们将拆解每个部分并测量性能影响。",
+"article.prev":"上一篇","article.prevT":"组织大型 TypeScript 项目","article.prevD":"学习用模块化模式与严格类型组织复杂 TS 代码库。",
+"article.next":"下一篇","article.nextT":"WASM vs 原生：何时搬到浏览器","article.nextD":"判断 WebAssembly 是否合适的实用指南。",
+"article.builtWith":"基于 Rust + Next.js 构建","article.rights":"版权所有",
+"about.cta":"联系我","about.roles":"开发者 — 构建者 — 开源","about.title":"关于",
+"about.bio":"我是 Jevik，一名热衷于构建可扩展、可靠且深思熟虑的系统的软件开发者。我专注于创造干净、可维护的解决方案，解决真实问题——从云基础设施到开发者工具。如今我从事开源工具、云原生应用与后端系统，始终追求优雅的代码与用心的设计。现居美国俄勒冈州波特兰。",
+"about.timeline":"职业时间线",
+"about.j1t":"创始人 & 开源维护者","about.j1d":"发布开源 devtool 库，获 12k+ GitHub star；DevConf 2025 演讲嘉宾",
+"about.j2t":"Arcstream 首席工程师","about.j2d":"主导平台扩展至 200 万+用户；将架构迁移至 AWS 上的 Kubernetes",
+"about.j3t":"NovaLabs 高级开发者","about.j3d":"用 React 与 TypeScript 构建实时分析仪表盘；性能提升 60%",
+"about.j4t":"Cloudforge 软件工程师","about.j4d":"用 Python 开发核心后端 API；改进 CI/CD 流水线与可靠性",
+"about.skills":"技能","about.foot":"接受自由职业与协作",
+"contact.title":"一起构建伟大的作品",
+"contact.lede":"有项目想法或想合作？给我留言，我会在 24 小时内回复。",
+"contact.info":"联系信息","contact.email":"邮箱","contact.location":"地点","contact.locV":"爱沙尼亚塔林 — UTC+2",
+"contact.socials":"社交链接","contact.availK":"可接单状态","contact.availV":"接受自由职业","contact.availS":"欢迎新项目 · 通常 24 小时内回复",
+"contact.form":"发送消息","contact.name":"你的名字","contact.namePh":"例如：Alex Morgan","contact.emailAddr":"邮箱地址",
+"contact.msg":"你的留言","contact.msgPh":"介绍你的项目、目标、时间线或任何问题……",
+"contact.send":"发送消息","contact.note":"我通常在 24 小时内回复。绝无垃圾邮件。","contact.privacy":"你的信息受到保护，严格保密",
+"form.errName":"请填写你的名字。","form.errEmail":"请填写邮箱。","form.errEmailBad":"邮箱格式似乎不对。","form.errMsg":"请写点留言内容。"
+}};
 
-  "nav.about": "关于", "nav.projects": "项目", "nav.blog": "博客", "nav.contact": "联系",
-  "nav.home": "首页", "nav.work": "作品", "nav.overview": "概览", "nav.articles": "文章",
-  "nav.about_u": "关于", "nav.projects_u": "项目", "nav.blog_u": "博客", "nav.contact_u": "联系",
-  "nav.hire": "找我合作", "nav.getintouch": "联系我", "nav.contact2": "联系",
-
-  "hero.role": "后端 × LLM 工程师",
-  "hero.desc": "我构建可靠的后端系统与 LLM 应用——RAG、Agent、工作流编排，全部经受过生产环境的检验。",
-  "hero.view": "浏览项目", "hero.touch": "联系我", "hero.touch2": "联系我",
-  "hero.chip": "接受合作邀约",
-
-  "home.sec_projects": "项目", "home.viewall": "查看全部",
-  "home.p1cat": "AI · Agent", "home.p1t": "AIOps Agent",
-  "home.p1d": "自主运维 Agent：告警降噪、根因定位、事故报告一气呵成。",
-  "home.p2cat": "自动化", "home.p2t": "内容生产流水线",
-  "home.p2d": "从灵感到发布——内容创作与分发的全自动流水线。",
-  "home.p3cat": "RAG", "home.p3t": "本地知识库",
-  "home.p3d": "本地优先的知识库，混合检索，答案又快又有据可查。",
-  "home.sec_articles": "文章", "home.allarticles": "全部文章",
-  "home.a1date": "2026年9月 · 阅读8分钟", "home.a1t": "RAG 落地：真正会挂的地方",
-  "home.a1d": "切分、检索、评估——这些不性感的环节决定你的 RAG 能不能活过真实用户。",
-  "home.a2date": "2026年8月 · 阅读6分钟", "home.a2t": "构建不会对工具产生幻觉的 Agent",
-  "home.a2d": "护栏、Schema、校验循环，打造真正可信的 Agent。",
-  "home.a3date": "2026年7月 · 阅读10分钟", "home.a3t": "我的内容自动化流水线全记录",
-  "home.a3d": "几个 Python 脚本，把零散灵感变成每日更新的发布流水线。",
-  "home.sec_contact": "联系",
-  "home.contact_lead": "一起做点有意思的——接受 freelance 与合作。",
-
-  "footer.tag": "精心设计与手写代码",
-  "footer.tag2": "精雕细琢",
-  "footer.tag3": "专注性能与清晰",
-
-  "projects.eyebrow": "精选作品", "projects.title": "项目",
-  "projects.sub": "一系列构建、实验与产品——为性能、可用性与干净架构而设计和打磨。",
-  "projects.filter": "筛选：", "projects.f_all": "全部", "projects.f_agent": "AI Agent",
-  "projects.f_rag": "RAG", "projects.f_backend": "后端", "projects.f_auto": "自动化",
-  "projects.p1t": "AIOps Agent",
-  "projects.p1d": "自主事故响应：告警降噪、根因分析、报告起草。",
-  "projects.p2t": "内容生产流水线",
-  "projects.p2d": "灵感 → 草稿 → 发布，在 X 与小红书全自动跑通。",
-  "projects.p3t": "本地知识库",
-  "projects.p3d": "本地文档的混合检索，答案附带引用来源。",
-  "projects.p4t": "API 网关",
-  "projects.p4d": "微服务网关：鉴权、限流、全链路可观测。",
-  "projects.p5t": "文档问答助手",
-  "projects.p5d": "对着文档提问，答案自带出处。",
-  "projects.p6t": "发布工具箱",
-  "projects.p6d": "后端服务的一键打包、发布与回滚工具。",
-  "projects.count": "6 个项目",
-
-  "detail.eyebrow": "项目展示 · 案例", "detail.title": "AIOps Agent",
-  "detail.desc": "为生产事故打造的自主 Agent：收敛告警风暴、跨服务追踪根因、在你咖啡还没喝完之前起草好事故报告。",
-  "detail.gallery": "截图画廊", "detail.gallery_sub": "为清晰与速度而设计的关键界面",
-  "detail.g1t": "告警分诊", "detail.g1d": "降噪与严重度排序",
-  "detail.g2t": "根因图谱", "detail.g2d": "跨服务故障追踪",
-  "detail.g3t": "事故报告", "detail.g3d": "自动起草、人工确认",
-  "detail.s1": "告警噪声降低", "detail.s2": "根因定位时间",
-  "detail.s3": "全天候值守", "detail.s4": "报告覆盖率",
-  "detail.role": "角色：后端 × LLM 工程师", "detail.role2": "设计与工程",
-  "detail.t1": "Agent 设计", "detail.t2": "RAG", "detail.t3": "生产级打磨",
-
-  "blog.title": "写给现代开发者的思考",
-  "blog.sub": "关于工程、系统与构建更好软件的想法——Jevik 执笔",
-  "blog.f_all": "全部", "blog.f_ai": "AI", "blog.f_backend": "后端",
-  "blog.f_rag": "RAG", "blog.f_devops": "DevOps",
-  "blog.featured": "精选文章", "blog.feat_t": "RAG 落地：真正会挂的地方",
-  "blog.feat_meta": "2026年9月 · 阅读8分钟",
-  "blog.feat_d": "切分、检索、评估——这些不性感的环节决定你的 RAG 能不能活过真实用户。一线实战笔记。",
-  "blog.read": "阅读全文", "blog.latest": "最新文章",
-  "blog.c_ai": "AI", "blog.a1t": "构建不会对工具产生幻觉的 Agent",
-  "blog.a1m": "2026年8月 · 阅读6分钟",
-  "blog.c_backend": "后端", "blog.a2t": "设计能活过第三版的 API",
-  "blog.a2m": "2026年7月 · 阅读7分钟",
-  "blog.c_rag": "RAG", "blog.a3t": "混合检索：BM25 何时打赢向量",
-  "blog.a3m": "2026年6月 · 阅读5分钟",
-  "blog.c_devops": "DevOps", "blog.a4t": "我的内容自动化流水线全记录",
-  "blog.a4m": "2026年5月 · 阅读10分钟",
-
-  "article.kicker": "RAG · 生产笔记",
-  "article.title": "RAG 落地：真正会挂的地方",
-  "article.role": "工程师", "article.date": "2026年9月", "article.read": "阅读8分钟",
-  "article.p1": "Demo 里的 RAG 看起来毫不费力：切一切文档、做个向量、套个聊天框，收工。生产环境是 Demo 的葬身之地——奇葩的 PDF、没人想到过的问题、自信满满返回错误段落的检索。",
-  "article.p2": "做了几个这样的系统后，我发现故障都集中在三个地方：切分、检索、评估。这三处搞对了，其他都是抛光；搞错了，再好的 prompt 技巧也救不回来。",
-  "article.quote": "检索质量是个穿着模型外衣的数据问题。先修语料，再调 prompt。",
-  "article.h2": "先看语料，别先看模型",
-  "article.p3": "我见过的大多数残血 RAG 都不是模型问题，是垃圾进垃圾出：表格错乱的扫描 PDF、重复的 Confluence 页面、同一份 runbook 的五个版本。检索器尽职尽责地返回垃圾，模型尽职尽责地总结它。",
-  "article.p4": "按结构切分、带重叠的滑窗，几乎每次都打赢简单粗暴的定长切分。而元数据——来源、章节、日期——让你能过滤、能引用，而不是靠猜。",
-  "article.p5": "接下来是混合检索：纯向量检索抓不住精确词，纯关键词检索抓不住语义。两者结合，对候选重排，再用一小份黄金评测集度量一切。度量不了的变化，就上不了线。",
-  "article.prev": "← 上一篇",
-  "article.prev_t": "构建不会对工具产生幻觉的 Agent",
-  "article.prev_d": "护栏、Schema 与校验循环。",
-  "article.next": "下一篇 →",
-  "article.next_t": "混合检索：BM25 何时打赢向量",
-  "article.next_d": "老派关键词检索依然有它的位置。",
-
-  "about.tags": "开发者 — 构建者 — 开源", "about.title": "关于我",
-  "about.bio1": "我是 Jevik，一名做 LLM 应用的后端工程师——RAG、Agent、工作流编排。我在乎能活过生产环境的系统：干净的架构、诚实的评估、无聊但可靠。",
-  "about.bio2": "日常是 Java Spring Cloud 微服务和 Python LLM 技术栈。业余时间公开构建：自动化流水线、AIOps 实验和一线实战笔记。",
-  "about.timeline": "职业时间线",
-  "about.t1t": "独立工程师 · LLM 应用",
-  "about.t1d": "交付 RAG 系统、Agent 与内容自动化——公开构建中。",
-  "about.t2t": "后端工程师 · 微服务",
-  "about.t2d": "Java Spring Cloud 服务：API、网关，以及让它们诚实的可观测性。",
-  "about.t3t": "软件工程师 · 后端",
-  "about.t3d": "Python 核心后端 API；CI/CD 流水线与可靠性工作。",
-  "about.skills": "技能",
-  "about.foot": "接受 freelance 与合作",
-
-  "contact.dev": "开发者 · Jevik",
-  "contact.title": "一起构建些了不起的东西",
-  "contact.sub": "有项目想法或想合作？给我留言，24 小时内回复。",
-  "contact.info": "联系方式", "contact.email_k": "邮箱",
-  "contact.loc_k": "地点", "contact.loc_v": "远程 · UTC+8",
-  "contact.social": "社交账号",
-  "contact.avail_k": "当前状态",
-  "contact.avail_v": "接受 freelance 合作",
-  "contact.avail_s": "欢迎新项目 · 通常 24 小时内回复",
-  "contact.form_t": "发送消息",
-  "contact.f_name": "你的名字", "contact.f_name_ph": "例如：张伟",
-  "contact.f_email": "邮箱地址",
-  "contact.f_msg": "你的留言",
-  "contact.f_msg_ph": "聊聊你的项目、目标、时间线，或任何问题……",
-  "contact.send": "发送消息",
-  "contact.note": "通常 24 小时内回复，绝不发垃圾邮件。",
-  "contact.lock": "🔒 你的信息受到保护，严格保密",
-
-  "form.empty": "请把名字、邮箱和留言都填一下。",
-  "form.sent": "已为你打开邮件客户端，点发送即可。"
-}
-};
-
-(function () {
-  var KEY = "jevik-lang";
-
-  function dict(lang) { return window.JEVIK_I18N[lang] || {}; }
-  function t(key, lang) {
-    var d = dict(lang);
-    if (d[key] !== undefined) return d[key];
-    var en = dict("en");
-    return en[key] !== undefined ? en[key] : "";
-  }
-  function getLang() {
-    try { return localStorage.getItem(KEY) || "en"; } catch (e) { return "en"; }
-  }
-  function apply(lang) {
-    document.documentElement.lang = (lang === "zh") ? "zh-CN" : "en";
-    document.querySelectorAll("[data-i18n]").forEach(function (el) {
-      var v = t(el.getAttribute("data-i18n"), lang);
-      if (v) el.innerHTML = v;
+(function(){
+  const KEY="jevik-lang";
+  const dict=()=>I18N[document.documentElement.lang==="zh"?"zh":"en"]||I18N.en;
+  window.__t=function(k){const d=dict();return d[k]!=null?d[k]:I18N.en[k]||k;};
+  window.applyLang=function(lang){
+    document.documentElement.lang=lang;
+    try{localStorage.setItem(KEY,lang);}catch(e){}
+    document.querySelectorAll("[data-i18n]").forEach(el=>{
+      const v=window.__t(el.getAttribute("data-i18n"));
+      if(v!=null)el.innerHTML=v;
     });
-    document.querySelectorAll("[data-i18n-attr]").forEach(function (el) {
-      var v = t(el.getAttribute("data-i18n"), lang);
-      if (v) el.setAttribute(el.getAttribute("data-i18n-attr"), v);
+    document.querySelectorAll("[data-i18n-ph]").forEach(el=>{
+      el.setAttribute("placeholder",window.__t(el.getAttribute("data-i18n-ph")));
     });
-    document.querySelectorAll("[data-i18n-ph]").forEach(function (el) {
-      var v = t(el.getAttribute("data-i18n-ph"), lang);
-      if (v) el.setAttribute("placeholder", v);
-    });
-    document.querySelectorAll(".lang-toggle button").forEach(function (b) {
-      b.classList.toggle("on", b.getAttribute("data-lang") === lang);
-    });
-  }
-  function setLang(lang) {
-    try { localStorage.setItem(KEY, lang); } catch (e) {}
-    apply(lang);
-  }
-
-  window.JevikLang = {
-    get: getLang, set: setLang, apply: apply,
-    t: function (key) { return t(key, getLang()); }
+    document.querySelectorAll("[data-lang-toggle]").forEach(b=>{b.textContent=lang==="en"?"中文":"EN";});
   };
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", function () { apply(getLang()); });
-  } else {
-    apply(getLang());
-  }
+  window.currentLang=function(){
+    try{return localStorage.getItem(KEY)||"en";}catch(e){return "en";}
+  };
 })();

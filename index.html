@@ -3,141 +3,112 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title data-i18n="meta.title.index">Jevik — Backend × LLM Engineer</title>
-<meta name="description" content="" data-i18n="meta.desc.index" data-i18n-attr="content">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/styles.css">
-<script src="assets/js/i18n.js" defer></script>
-<script src="assets/js/main.js" defer></script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23ff8a3d'/%3E%3Cstop offset='1' stop-color='%233f8cff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Ctext x='32' y='44' font-family='sans-serif' font-weight='800' font-size='36' fill='white' text-anchor='middle'%3EJ%3C/text%3E%3C/svg%3E">
+<title>Jevik — Developer & Creative Engineer</title>
+<meta name="description" content="I design and build performant, accessible web experiences — crafted with modern technologies, motion, and clarity.">
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
-
-<nav class="nav-float wrap">
-  <a class="nav-logo" href="index.html" aria-label="Jevik home"><span class="cube"></span><span>Jevik</span></a>
+<nav class="nav nav-classic"><div class="wrap"><div class="nav-inner">
+  <a class="nav-logo" href="index.html">Jevik</a>
   <div class="nav-links">
     <a href="about.html" data-i18n="nav.about">About</a>
     <a href="projects.html" data-i18n="nav.projects">Projects</a>
-    <a href="blog.html" data-i18n="nav.blog">Blog</a>
+    <a href="blog.html" data-i18n="nav.articles">Articles</a>
     <a href="contact.html" data-i18n="nav.contact">Contact</a>
   </div>
-  <div class="nav-cta">
-      <button class="burger" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
-    <div class="lang-toggle" role="group" aria-label="Language">
-      <button type="button" data-lang="en" class="on">EN</button>
-      <button type="button" data-lang="zh">中文</button>
-    </div>
-    <a class="btn btn-grad btn-sm" href="contact.html" data-i18n="nav.hire">Hire Me</a>
+  <div style="display:flex;gap:10px;align-items:center">
+    <button class="lang-btn" data-lang-toggle>中文</button>
+    <a class="btn btn-grad hide-m" href="contact.html" data-i18n="nav.hire" style="padding:12px 28px">Hire Me</a>
+    <button class="burger" data-burger aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
-</nav>
+  <div class="mobile-menu">
+    <a href="about.html" data-i18n="nav.about">About</a>
+    <a href="projects.html" data-i18n="nav.projects">Projects</a>
+    <a href="blog.html" data-i18n="nav.articles">Articles</a>
+    <a href="contact.html" data-i18n="nav.contact">Contact</a>
+    <a href="contact.html" data-i18n="nav.hire">Hire Me</a>
+  </div>
+</div></div></nav>
+
+<header class="wrap hero-home">
+  <div class="rv">
+    <h1>Jevik</h1>
+    <div class="role" data-i18n="home.role">Developer &amp; Creative Engineer</div>
+    <p class="lead" data-i18n="home.lead">I design and build performant, accessible web experiences—crafted with modern technologies, motion, and clarity.</p>
+    <div class="hero-cta">
+      <a class="btn btn-grad" href="projects.html" data-i18n="home.viewProjects">View Projects</a>
+      <a class="btn btn-outline" href="contact.html" data-i18n="home.getInTouch">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-art rv"><img src="assets/img/hero-3d.png" alt="Chrome and glass 3D abstract shapes"></div>
+</header>
 
 <main class="wrap">
-  <!-- HERO -->
-  <section class="hero">
-    <div>
-      <h1 class="hero-title rv">Jevik</h1>
-      <p class="hero-role rv d1" data-i18n="hero.role">Backend × LLM Engineer</p>
-      <p class="hero-desc rv d2" data-i18n="hero.desc">I build reliable backend systems and LLM-powered products — RAG, agents, and workflow orchestration that survive production.</p>
-      <div class="hero-btns rv d3">
-        <a class="btn btn-grad" href="projects.html" data-i18n="hero.view">View Projects</a>
-        <a class="btn btn-ghost" href="contact.html" data-i18n="hero.touch">Get in Touch</a>
-      </div>
+  <section style="padding:20px 0 46px">
+    <div class="section-head rv">
+      <h2 data-i18n="home.projects">Projects</h2>
+      <a class="link-arrow" href="projects.html"><span data-i18n="home.viewAll">View all</span> →</a>
     </div>
-    <div class="hero-visual rv d1">
-      <div class="frame"><img src="assets/img/hero-3d.png" alt="Abstract chrome and glass 3D artwork"></div>
-      <div class="float-chip"><span class="pulse"></span><span data-i18n="hero.chip">Open for collaborations</span></div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section class="block">
-    <div class="sec-head rv">
-      <h2 class="sec-title" data-i18n="home.sec_projects">Projects</h2>
-      <a class="sec-link" href="projects.html"><span data-i18n="home.viewall">View all</span> →</a>
-    </div>
-    <div class="grid-3">
-      <a class="card rv" href="project-detail.html">
-        <div class="thumb"><img src="assets/img/thumb-aiops.png" alt="AIOps Agent"></div>
-        <div class="body">
-          <span class="cat" data-i18n="home.p1cat">AI · Agent</span>
-          <h3 data-i18n="home.p1t">AIOps Agent</h3>
-          <p data-i18n="home.p1d">An autonomous agent that triages alerts, finds root causes, and drafts incident reports.</p>
-        </div>
+    <div class="duo-grid">
+      <a class="mini-card card-hover rv" href="project-detail.html">
+        <div class="txt"><h3>Orbit Analytics</h3><span class="tag">Product · Dashboard</span>
+        <p style="margin-top:8px" data-i18n="home.p1d">Real-time analytics dashboard with interactive data viz and responsive UI.</p></div>
+        <div class="thumb"><img src="assets/img/thumb-pipeline.png" alt="Orbit Analytics"></div>
       </a>
-      <a class="card rv d1" href="projects.html">
-        <div class="thumb"><img src="assets/img/thumb-pipeline.png" alt="Content pipeline"></div>
-        <div class="body">
-          <span class="cat" data-i18n="home.p2cat">Automation</span>
-          <h3 data-i18n="home.p2t">Content Pipeline</h3>
-          <p data-i18n="home.p2d">From idea to published post — an automated pipeline for content creation and distribution.</p>
-        </div>
+      <a class="mini-card card-hover rv" href="project-detail.html">
+        <div class="txt"><h3>Glass UI Kit</h3><span class="tag">Design System · Open Source</span>
+        <p style="margin-top:8px" data-i18n="home.p2d">A lightweight glassmorphism component library for React &amp; Tailwind.</p></div>
+        <div class="thumb"><img src="assets/img/thumb-toolbox.png" alt="Glass UI Kit"></div>
       </a>
-      <a class="card rv d2" href="projects.html">
-        <div class="thumb"><img src="assets/img/thumb-kb.png" alt="Knowledge base"></div>
-        <div class="body">
-          <span class="cat" data-i18n="home.p3cat">RAG</span>
-          <h3 data-i18n="home.p3t">Knowledge Base</h3>
-          <p data-i18n="home.p3d">Local-first knowledge base with hybrid retrieval for fast, grounded answers.</p>
-        </div>
+      <a class="mini-card card-hover rv" href="project-detail.html">
+        <div class="txt"><h3>Nebula API</h3><span class="tag">Backend · API</span>
+        <p style="margin-top:8px" data-i18n="home.p3d">Scalable REST API for modern apps with auth, rate limiting, and docs.</p></div>
+        <div class="thumb"><img src="assets/img/thumb-gateway.png" alt="Nebula API"></div>
       </a>
     </div>
   </section>
 
-  <!-- ARTICLES -->
-  <section class="block">
-    <div class="sec-head rv">
-      <h2 class="sec-title" data-i18n="home.sec_articles">Articles</h2>
-      <a class="sec-link" href="blog.html"><span data-i18n="home.allarticles">All articles</span> →</a>
+  <section style="padding:10px 0 46px">
+    <div class="section-head rv">
+      <h2 data-i18n="home.articles">Articles</h2>
+      <a class="link-arrow" href="blog.html"><span data-i18n="home.articles">Articles</span> →</a>
     </div>
-    <div class="grid-3">
-      <a class="card rv" href="article.html">
-        <div class="body">
-          <span class="meta" data-i18n="home.a1date">Sep 2026 · 8 min read</span>
-          <h3 data-i18n="home.a1t">RAG in Production: What Actually Breaks</h3>
-          <p data-i18n="home.a1d">Chunking, retrieval, evals — the unglamorous parts that decide whether your RAG survives real users.</p>
-        </div>
+    <div class="duo-grid">
+      <a class="article-card card-hover rv" href="article.html">
+        <div class="date">Oct 12, 2024</div><h3 data-i18n="home.a1t">Building Performant UIs with 3D &amp; Glassmorphism</h3>
+        <p data-i18n="home.a1d">Techniques for using glass, depth, and motion without sacrificing speed.</p>
       </a>
-      <a class="card rv d1" href="blog.html">
-        <div class="body">
-          <span class="meta" data-i18n="home.a2date">Aug 2026 · 6 min read</span>
-          <h3 data-i18n="home.a2t">Building Agents That Don't Hallucinate Their Tools</h3>
-          <p data-i18n="home.a2d">Guardrails, schemas, and verification loops for agents you can actually trust.</p>
-        </div>
+      <a class="article-card card-hover rv" href="article.html">
+        <div class="date">Sep 28, 2024</div><h3 data-i18n="home.a2t">From Idea to Ship: My Web Build Workflow</h3>
+        <p data-i18n="home.a2d">My toolkit, process, and principles for shipping reliable products fast.</p>
       </a>
-      <a class="card rv d2" href="blog.html">
-        <div class="body">
-          <span class="meta" data-i18n="home.a3date">Jul 2026 · 10 min read</span>
-          <h3 data-i18n="home.a3t">My Content Automation Pipeline, End to End</h3>
-          <p data-i18n="home.a3d">How I turned scattered ideas into a daily publishing pipeline with a few Python scripts.</p>
-        </div>
+      <a class="article-card card-hover rv" href="article.html">
+        <div class="date">Sep 15, 2024</div><h3 data-i18n="home.a3t">Color in Code: Gradients that Actually Work</h3>
+        <p data-i18n="home.a3d">How to blend orange and blue gradients for accessibility and vibrancy.</p>
       </a>
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section class="block" style="text-align:center;">
-    <h2 class="sec-title rv" style="margin-bottom:18px;" data-i18n="home.sec_contact">Contact</h2>
-    <p class="rv d1" style="color:var(--ink-soft);font-size:18px;max-width:60ch;margin:0 auto;" data-i18n="home.contact_lead">Let's work together — open for freelance &amp; collabs.</p>
-    <div class="rv d2" style="margin-top:30px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;align-items:center;">
-      <a class="social-pill" href="mailto:hello@jevik.dev">✉️ hello@jevik.dev</a>
-      <a class="social-pill" href="https://github.com/jevik" target="_blank" rel="noopener">GitHub</a>
-      <a class="social-pill" href="https://x.com/jevik_dev" target="_blank" rel="noopener">X</a>
-      <a class="btn btn-grad" href="contact.html" data-i18n="hero.touch2">Get in Touch</a>
+  <section class="contact-strip rv">
+    <h2 data-i18n="home.contact">Contact</h2>
+    <p data-i18n="home.contactSub">Let's work together — open for freelance &amp; collabs.</p>
+    <div class="row">
+      <a class="email-pill" href="mailto:jevik.dev@gmail.com">✉️ jevik.dev@gmail.com</a>
+      <span>📍 <b data-i18n="home.location">Location</b><br><span data-i18n="home.based">Based in Toronto, Canada</span></span>
+      <span>🌐 <b data-i18n="home.socials">Socials</b>
+        <span class="social-icons" style="margin-top:6px">
+          <a href="https://github.com/jevik" aria-label="GitHub">⌘</a>
+          <a href="https://linkedin.com/in/jevik" aria-label="LinkedIn">in</a>
+          <a href="https://x.com/jevikdev" aria-label="X">𝕏</a>
+        </span></span>
     </div>
   </section>
 </main>
 
-<footer class="site">
-  <div class="wrap">
-    <p>© 2026 Jevik · <span data-i18n="footer.tag">Designed &amp; hand-coded with care</span></p>
-    <div class="flinks">
-      <a href="blog.html">RSS</a>
-      <a href="https://github.com/jevik" target="_blank" rel="noopener">GitHub</a>
-      <a href="contact.html" data-i18n="nav.contact2">Contact</a>
-    </div>
-  </div>
-</footer>
-
+<footer class="footer-line wrap">© 2024 Jevik · <span data-i18n="home.builtWith">Built with Next.js &amp; Tailwind</span> · <a href="#">Privacy</a> · <a href="#">Credits</a></footer>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>

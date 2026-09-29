@@ -1,116 +1,61 @@
-/* Jevik site interactions: language toggle, reveal-on-scroll,
-   project/blog filtering, contact form (mailto). */
-
-(function () {
-  "use strict";
-
-  function onReady(fn) {
-    document.documentElement.classList.add("js");
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", fn);
-    } else {
-      fn();
-    }
-  }
-
-  function t(key) {
-    if (window.JevikLang && typeof window.JevikLang.t === "function") {
-      return window.JevikLang.t(key);
-    }
-    return key;
-  }
-
-  function initLangToggle() {
-    document.querySelectorAll(".lang-toggle button").forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        var lang = btn.getAttribute("data-lang");
-        if (window.JevikLang) window.JevikLang.set(lang);
-      });
-    });
-  }
-
-  function initBurger() {
-    var burger = document.querySelector(".burger");
-    var nav = document.querySelector(".nav-float");
-    if (!burger || !nav) return;
-    burger.addEventListener("click", function () {
-      var open = nav.classList.toggle("open");
-      burger.setAttribute("aria-expanded", open ? "true" : "false");
-    });
-    nav.addEventListener("click", function (e) {
-      if (e.target.closest("a")) {
-        nav.classList.remove("open");
-        burger.setAttribute("aria-expanded", "false");
-      }
-    });
-  }
-
-  function initReveal() {
-    var els = document.querySelectorAll(".rv");
-    if (!els.length) return;
-    if (!("IntersectionObserver" in window)) {
-      els.forEach(function (el) { el.classList.add("in"); });
-      return;
-    }
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) {
-          e.target.classList.add("in");
-          io.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: "0px 0px -40px 0px" });
-    els.forEach(function (el) { io.observe(el); });
-  }
-
-  function initFilters() {
-    document.querySelectorAll("[data-filter-group]").forEach(function (group) {
-      var pills = group.querySelectorAll(".fpill");
-      var list = document.querySelector(
-        group.getAttribute("data-filter-group") === "projects" ? "#project-grid" : "#blog-list"
-      );
-      if (!list) return;
-      pills.forEach(function (pill) {
-        pill.addEventListener("click", function () {
-          pills.forEach(function (p) { p.classList.remove("on"); });
-          pill.classList.add("on");
-          var f = pill.getAttribute("data-filter");
-          list.querySelectorAll("[data-cat]").forEach(function (card) {
-            var show = f === "all" || card.getAttribute("data-cat") === f;
-            card.classList.toggle("hide", !show);
-          });
-        });
-      });
-    });
-  }
-
-  function initContactForm() {
-    var form = document.getElementById("contact-form");
-    if (!form) return;
-    form.addEventListener("submit", function (ev) {
-      ev.preventDefault();
-      var nameEl = document.getElementById("cf-name");
-      var emailEl = document.getElementById("cf-email");
-      var msgEl = document.getElementById("cf-msg");
-      var name = nameEl ? nameEl.value.trim() : "";
-      var email = emailEl ? emailEl.value.trim() : "";
-      var msg = msgEl ? msgEl.value.trim() : "";
-      if (!name || !email || !msg) {
-        alert(t("form.empty"));
-        return;
-      }
-      var subject = encodeURIComponent("Website contact from " + name);
-      var body = encodeURIComponent("Name: " + name + "\nEmail: " + email + "\n\n" + msg);
-      window.location.href = "mailto:hello@jevik.dev?subject=" + subject + "&body=" + body;
-      alert(t("form.sent"));
-    });
-  }
-
-  onReady(function () {
-    initLangToggle();
-    initBurger();
-    initReveal();
-    initFilters();
-    initContactForm();
+/* shared interactions: lang toggle, burger, reveal, filters, contact form */
+(function(){
+  document.documentElement.classList.add("js");
+  applyLang(currentLang());
+  document.querySelectorAll("[data-lang-toggle]").forEach(b=>{
+    b.addEventListener("click",()=>applyLang(document.documentElement.lang==="en"?"zh":"en"));
   });
+
+  // mobile menu
+  document.querySelectorAll("[data-burger]").forEach(btn=>{
+    btn.addEventListener("click",()=>{
+      const nav=btn.closest(".nav");
+      if(nav)nav.classList.toggle("open");
+    });
+  });
+
+  // reveal on scroll
+  const io=new IntersectionObserver(es=>{
+    es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});
+  },{threshold:.12});
+  document.querySelectorAll(".rv").forEach(el=>io.observe(el));
+
+  // category filters (projects + blog pages)
+  document.querySelectorAll("[data-filter-group]").forEach(group=>{
+    const pills=group.querySelectorAll("[data-filter]");
+    pills.forEach(p=>p.addEventListener("click",()=>{
+      pills.forEach(x=>x.classList.remove("active"));
+      p.classList.add("active");
+      const f=p.getAttribute("data-filter");
+      document.querySelectorAll("[data-cat]").forEach(card=>{
+        const cats=(card.getAttribute("data-cat")||"").split(/\s+/);
+        card.style.display=(f==="all"||cats.includes(f))?"":"none";
+      });
+    }));
+  });
+
+  // contact form
+  const form=document.getElementById("contactForm");
+  if(form){
+    const show=(name,msg)=>{
+      const e=form.querySelector('[data-err="'+name+'"]');
+      if(e){e.textContent=msg||"";e.style.display=msg?"block":"none";}
+    };
+    form.addEventListener("submit",ev=>{
+      ev.preventDefault();
+      const name=form.name.value.trim(),email=form.email.value.trim(),msg=form.message.value.trim();
+      let ok=true;
+      show("name",name?"":__t("form.errName"));if(!name)ok=false;
+      const bad=!email?__t("form.errEmail"):(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)?"":__t("form.errEmailBad"));
+      show("email",bad);if(bad)ok=false;
+      show("message",msg?"":__t("form.errMsg"));if(!msg)ok=false;
+      if(!ok)return;
+      const subject=encodeURIComponent("Website inquiry from "+name);
+      const body=encodeURIComponent("Name: "+name+"\nEmail: "+email+"\n\n"+msg);
+      window.location.href="mailto:hello@jevik.dev?subject="+subject+"&body="+body;
+    });
+    ["name","email","message"].forEach(n=>{
+      const f=form[n];if(f)f.addEventListener("input",()=>show(n,""));
+    });
+  }
 })();

@@ -2,7 +2,7 @@
   "name": "jevik-site",
   "private": true,
   "scripts": {
-    "dev": "wrangler dev",
+    "dev": "wrangler dev --persist-to ../jevik-site-wrangler-state",
     "deploy": "wrangler deploy"
   },
   "devDependencies": {

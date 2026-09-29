@@ -3,97 +3,92 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title data-i18n="meta.title.blog">Blog — Jevik</title>
-<meta name="description" content="" data-i18n="meta.desc.blog" data-i18n-attr="content">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/styles.css">
-<script src="assets/js/i18n.js" defer></script>
-<script src="assets/js/main.js" defer></script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23ff8a3d'/%3E%3Cstop offset='1' stop-color='%233f8cff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Ctext x='32' y='44' font-family='sans-serif' font-weight='800' font-size='36' fill='white' text-anchor='middle'%3EJ%3C/text%3E%3C/svg%3E">
+<title>Blog — Jevik</title>
+<meta name="description" content="Thoughts on engineering, systems, and building better software — written by Jevik.">
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
-
-<nav class="nav-float wrap">
-  <a class="nav-logo" href="index.html" aria-label="Jevik home"><span class="cube"></span><span class="chrome chrome-warm chrome-3d">Jevik</span></a>
+<nav class="nav nav-glass"><div class="wrap"><div class="nav-inner" style="position:relative;overflow:visible">
+  <div class="bubble" style="width:54px;height:54px;right:6px;top:-34px"></div>
+  <div class="bubble" style="width:30px;height:30px;right:60px;top:-44px"></div>
+  <a class="nav-logo" href="index.html"><span class="logo-3d">Jevik</span></a>
   <div class="nav-links">
-    <a href="blog.html" class="active" data-i18n="nav.blog">Blog</a>
+    <a href="blog.html" class="on" data-i18n="nav.blog">Blog</a>
     <a href="projects.html" data-i18n="nav.projects">Projects</a>
     <a href="about.html" data-i18n="nav.about">About</a>
     <a href="contact.html" data-i18n="nav.contact">Contact</a>
   </div>
-  <div class="nav-cta">
-      <button class="burger" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
-    <div class="lang-toggle" role="group" aria-label="Language">
-      <button type="button" data-lang="en" class="on">EN</button>
-      <button type="button" data-lang="zh">中文</button>
-    </div>
+  <div style="display:flex;gap:10px;align-items:center">
+    <button class="lang-btn" data-lang-toggle>中文</button>
+    <a class="btn btn-grad hide-m" href="contact.html" data-i18n="nav.subscribe" style="padding:12px 28px">Subscribe</a>
+    <button class="burger" data-burger aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
-</nav>
+  <div class="mobile-menu">
+    <a href="blog.html" data-i18n="nav.blog">Blog</a>
+    <a href="projects.html" data-i18n="nav.projects">Projects</a>
+    <a href="about.html" data-i18n="nav.about">About</a>
+    <a href="contact.html" data-i18n="nav.contact">Contact</a>
+    <a href="contact.html" data-i18n="nav.subscribe">Subscribe</a>
+  </div>
+</div></div></nav>
+
+<header class="wrap blog-hero rv" style="overflow:visible">
+  <div class="bubble" style="width:120px;height:120px;right:8%;top:-30px"></div>
+  <div class="bubble" style="width:60px;height:60px;right:22%;top:30px"></div>
+  <h1 data-i18n="blog.title">Insights for modern developers</h1>
+  <p class="lede" data-i18n="blog.lede">Thoughts on engineering, systems, and building better software — written by Jevik</p>
+  <div class="filter-row" data-filter-group>
+    <button class="pill active" data-filter="all" data-i18n="blog.all">All</button>
+    <button class="pill" data-filter="webdev" data-i18n="blog.webdev">Web Dev</button>
+    <button class="pill" data-filter="typescript">TypeScript</button>
+    <button class="pill" data-filter="systems" data-i18n="blog.systems">Systems</button>
+    <button class="pill" data-filter="devops">DevOps</button>
+    <button class="pill" data-filter="ai">AI</button>
+  </div>
+</header>
 
 <main class="wrap">
-  <header class="page-head">
-    <h1 class="blog-hero-title rv" data-i18n="blog.title">Insights for modern developers</h1>
-    <p class="blog-hero-sub rv d1" data-i18n="blog.sub">Thoughts on engineering, systems, and building better software — written by Jevik</p>
-    <div class="filters rv d2" data-filter-group="blog">
-      <button class="fpill on" data-filter="all" data-i18n="blog.f_all">All</button>
-      <button class="fpill" data-filter="ai" data-i18n="blog.f_ai">AI</button>
-      <button class="fpill" data-filter="backend" data-i18n="blog.f_backend">Backend</button>
-      <button class="fpill" data-filter="rag" data-i18n="blog.f_rag">RAG</button>
-      <button class="fpill" data-filter="devops" data-i18n="blog.f_devops">DevOps</button>
+  <article class="featured rv">
+    <div class="f-txt">
+      <span class="tag" data-i18n="blog.featured">Featured Post</span>
+      <h2 data-i18n="blog.f1t">Building a Real-Time Data Pipeline with Rust and WebSockets</h2>
+      <div class="f-meta">📅 <span>Dec 18, 2024 · 12 min read</span></div>
+      <p data-i18n="blog.f1d">Exploring how to combine Rust's performance with WebSockets to stream data at scale, handling backpressure and low-latency delivery in production environments.</p>
+      <a class="btn btn-grad" href="article.html"><span data-i18n="blog.read">Read article</span> →</a>
     </div>
-  </header>
+    <div class="f-img"><img src="assets/img/blog-dark.png" alt="Real-time data pipeline 3D visual"></div>
+  </article>
 
-  <!-- FEATURED -->
-  <section class="featured">
-    <div class="featured-card rv">
-      <span class="cat" data-i18n="blog.featured">Featured post</span>
-      <h2 data-i18n="blog.feat_t">RAG in Production: What Actually Breaks</h2>
-      <p class="meta" data-i18n="blog.feat_meta">Sep 2026 · 8 min read</p>
-      <p data-i18n="blog.feat_d">Chunking, retrieval, evals — the unglamorous parts that decide whether your RAG survives real users. Notes from the trenches.</p>
-      <div><a class="btn btn-grad btn-sm" href="article.html"><span data-i18n="blog.read">Read article</span> →</a></div>
-    </div>
-    <div class="featured-img rv d1"><img src="assets/img/blog-dark.png" alt="Glass cube network artwork"></div>
-  </section>
-
-  <!-- LATEST -->
-  <section class="block" style="padding-top:10px;">
-    <div class="sec-head rv"><h2 class="sec-title" data-i18n="blog.latest">Latest Articles</h2></div>
-    <div class="latest-list rv d1" id="blog-list">
-      <a class="latest-row" href="article.html" data-cat="ai">
-        <span class="cat" data-i18n="blog.c_ai">AI</span>
-        <div><h3 data-i18n="blog.a1t">Building Agents That Don't Hallucinate Their Tools</h3><p class="meta" data-i18n="blog.a1m">Aug 2026 · 6 min read</p></div>
-        <span class="arrow-circle">→</span>
+  <section class="latest rv">
+    <h2 data-i18n="blog.latest">Latest Articles</h2>
+    <div id="blogList">
+      <a class="lrow" href="article.html" data-cat="webdev">
+        <span class="tag">Web Dev</span>
+        <div class="grow"><h3 data-i18n="blog.p1t">Optimizing Node.js Performance with Worker Threads</h3>
+        <div class="d">📅 <span>Dec 12, 2024 · 8 min read</span></div></div>
+        <span class="arrow-btn">→</span>
       </a>
-      <a class="latest-row" href="article.html" data-cat="backend">
-        <span class="cat" data-i18n="blog.c_backend">Backend</span>
-        <div><h3 data-i18n="blog.a2t">Designing APIs That Survive Version Three</h3><p class="meta" data-i18n="blog.a2m">Jul 2026 · 7 min read</p></div>
-        <span class="arrow-circle">→</span>
+      <a class="lrow" href="article.html" data-cat="systems">
+        <span class="tag">Systems</span>
+        <div class="grow"><h3 data-i18n="blog.p2t">Understanding Kubernetes Networking for Developers</h3>
+        <div class="d">📅 <span>Dec 5, 2024 · 10 min read</span></div></div>
+        <span class="arrow-btn">→</span>
       </a>
-      <a class="latest-row" href="article.html" data-cat="rag">
-        <span class="cat" data-i18n="blog.c_rag">RAG</span>
-        <div><h3 data-i18n="blog.a3t">Hybrid Search: When BM25 Beats Vectors</h3><p class="meta" data-i18n="blog.a3m">Jun 2026 · 5 min read</p></div>
-        <span class="arrow-circle">→</span>
-      </a>
-      <a class="latest-row" href="article.html" data-cat="devops">
-        <span class="cat" data-i18n="blog.c_devops">DevOps</span>
-        <div><h3 data-i18n="blog.a4t">My Content Automation Pipeline, End to End</h3><p class="meta" data-i18n="blog.a4m">May 2026 · 10 min read</p></div>
-        <span class="arrow-circle">→</span>
+      <a class="lrow" href="article.html" data-cat="typescript">
+        <span class="tag">TypeScript</span>
+        <div class="grow"><h3 data-i18n="blog.p3t">TypeScript Patterns for Safer APIs</h3>
+        <div class="d">📅 <span>Nov 28, 2024 · 6 min read</span></div></div>
+        <span class="arrow-btn">→</span>
       </a>
     </div>
   </section>
+  <div style="height:44px"></div>
 </main>
 
-<footer class="site">
-  <div class="wrap">
-    <p>© 2026 Jevik · <span data-i18n="footer.tag3">Built with focus on performance &amp; clarity</span></p>
-    <div class="flinks">
-      <a href="blog.html">RSS</a>
-      <a href="https://github.com/jevik" target="_blank" rel="noopener">GitHub</a>
-      <a href="contact.html" data-i18n="nav.contact2">Contact</a>
-    </div>
-  </div>
-</footer>
-
+<footer class="footer-line wrap">© 2024 Jevik · <span data-i18n="blog.builtWith">Built with focus on performance &amp; clarity</span> · <a href="#">RSS</a> · <a href="#">GitHub</a> · <a href="#">LinkedIn</a> · <a href="#">Privacy</a></footer>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>

@@ -3,94 +3,86 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title data-i18n="meta.title.article">RAG in Production: What Actually Breaks — Jevik</title>
-<meta name="description" content="" data-i18n="meta.desc.article" data-i18n-attr="content">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/styles.css">
-<script src="assets/js/i18n.js" defer></script>
-<script src="assets/js/main.js" defer></script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23ff8a3d'/%3E%3Cstop offset='1' stop-color='%233f8cff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Ctext x='32' y='44' font-family='sans-serif' font-weight='800' font-size='36' fill='white' text-anchor='middle'%3EJ%3C/text%3E%3C/svg%3E">
+<title>Optimizing Async Rust: Patterns for Zero-Cost Concurrency — dev/jevik</title>
+<meta name="description" content="Patterns that keep your async Rust code fast, predictable, and free from hidden allocations.">
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
-
-<nav class="nav-float wrap">
-  <a class="nav-logo" href="index.html" aria-label="Jevik home"><span class="cube"></span><span>dev<span class="grad-text">/jevik</span></span></a>
-  <div class="nav-links">
-    <a href="blog.html" class="active" data-i18n="nav.articles">Articles</a>
-    <a href="projects.html" data-i18n="nav.projects">Projects</a>
+<nav class="nav nav-min"><div class="wrap"><div class="nav-inner">
+  <a class="nav-logo" href="index.html">
+    <svg class="cube" viewBox="0 0 48 48" style="width:34px;height:34px"><polygon points="24,4 42,14 24,24 6,14" fill="#ff9a4d"/><polygon points="6,14 24,24 24,44 6,34" fill="#3f8cff"/><polygon points="42,14 24,24 24,44 42,34" fill="#dfe6f5"/></svg>
+    dev/jevik</a>
+  <div class="nav-dots" style="display:flex">
+    <a href="blog.html" data-i18n="nav.articles">Articles</a><span class="dot">·</span>
+    <a href="blog.html" data-i18n="article.guides">Guides</a><span class="dot">·</span>
+    <a href="projects.html" data-i18n="nav.projects">Projects</a><span class="dot">·</span>
     <a href="about.html" data-i18n="nav.about">About</a>
   </div>
-  <div class="nav-cta">
-      <button class="burger" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
-    <div class="lang-toggle" role="group" aria-label="Language">
-      <button type="button" data-lang="en" class="on">EN</button>
-      <button type="button" data-lang="zh">中文</button>
-    </div>
+  <div style="display:flex;gap:10px;align-items:center">
+    <button class="lang-btn" data-lang-toggle>中文</button>
+    <button class="icon-btn hide-m" aria-label="Search">🔍</button>
+    <button class="icon-btn hide-m" aria-label="Notifications">🔔</button>
+    <a class="btn btn-grad hide-m" href="contact.html" data-i18n="nav.subscribe" style="padding:12px 28px">Subscribe</a>
+    <button class="burger" data-burger aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
-</nav>
-
-<main class="wrap">
-  <header class="article-head">
-    <p class="eyebrow rv" style="margin-bottom:22px;"><span class="dot"></span><span data-i18n="article.kicker">RAG · Production notes</span></p>
-    <h1 class="article-title rv d1" data-i18n="article.title">RAG in Production: What Actually Breaks</h1>
-    <div class="byline rv d2">
-      <span class="avatar">J</span>
-      <span><b>Jevik</b> · <span data-i18n="article.role">Engineer</span></span>
-      <span>·</span><span data-i18n="article.date">Sep 2026</span>
-      <span>·</span><span data-i18n="article.read">8 min read</span>
-    </div>
-  </header>
-
-  <div class="glass-rule"></div>
-
-  <article class="article-body">
-    <p class="rv" data-i18n="article.p1">Demos make RAG look easy: chunk some docs, embed them, wrap it in a chat UI, done. Production is where the demo goes to die — on weird PDFs, on questions nobody predicted, on retrieval that confidently returns the wrong paragraph.</p>
-    <p class="rv" data-i18n="article.p2">After shipping a few of these systems, I've learned the failures cluster in three places: chunking, retrieval, and evaluation. Get those right and everything else is polish. Get them wrong and no prompt trick will save you.</p>
-
-    <div class="quote-block rv" data-i18n="article.quote">Retrieval quality is a data problem wearing a model costume. Fix the corpus before you tune the prompt.</div>
-
-    <h2 class="rv" data-i18n="article.h2">Start with the corpus, not the model</h2>
-    <p class="rv" data-i18n="article.p3">Most broken RAG systems I see don't have a model problem — they have a garbage-in problem. Scanned PDFs with mangled tables, duplicated Confluence pages, five versions of the same runbook. The retriever dutifully returns junk, and the model dutifully summarizes it.</p>
-
-    <div class="code-block rv">
-      <div class="code-head"><span class="d" style="background:#ff5f57"></span><span class="d" style="background:#febc2e"></span><span class="d" style="background:#28c840"></span><span class="fname">chunk.py</span></div>
-<pre><span class="tok-k">def</span> <span class="tok-f">chunk_document</span>(doc, max_tokens=<span class="tok-s">512</span>):
-    <span class="tok-c"># split on structure first, tokens second</span>
-    sections = <span class="tok-f">split_by_headings</span>(doc)
-    chunks = []
-    <span class="tok-k">for</span> s <span class="tok-k">in</span> sections:
-        chunks += <span class="tok-f">sliding_window</span>(s, max_tokens, overlap=<span class="tok-s">64</span>)
-    <span class="tok-k">return</span> [<span class="tok-f">attach_metadata</span>(c, doc) <span class="tok-k">for</span> c <span class="tok-k">in</span> chunks]</pre>
-    </div>
-
-    <p class="rv" data-i18n="article.p4">Structure-aware chunking with overlap beats naive fixed-size splits almost every time. And metadata — source, section, date — is what lets you filter and cite instead of guessing.</p>
-    <p class="rv" data-i18n="article.p5">Next: hybrid retrieval. Pure vector search misses exact terms; pure keyword search misses meaning. Combine them, rerank the top candidates, and measure everything with a small golden eval set. If you can't measure a change, you can't ship it.</p>
-  </article>
-
-  <div class="prev-next">
-    <a class="pn-card rv" href="blog.html">
-      <span class="dir" data-i18n="article.prev">← Previous</span>
-      <h3 data-i18n="article.prev_t">Building Agents That Don't Hallucinate Their Tools</h3>
-      <p data-i18n="article.prev_d">Guardrails, schemas, and verification loops.</p>
-    </a>
-    <a class="pn-card next rv d1" href="blog.html">
-      <span class="dir" data-i18n="article.next">Next article →</span>
-      <h3 data-i18n="article.next_t">Hybrid Search: When BM25 Beats Vectors</h3>
-      <p data-i18n="article.next_d">Old-school keyword search still earns its place.</p>
-    </a>
+  <div class="mobile-menu">
+    <a href="blog.html" data-i18n="nav.articles">Articles</a>
+    <a href="blog.html" data-i18n="article.guides">Guides</a>
+    <a href="projects.html" data-i18n="nav.projects">Projects</a>
+    <a href="about.html" data-i18n="nav.about">About</a>
+    <a href="contact.html" data-i18n="nav.subscribe">Subscribe</a>
   </div>
+</div></div></nav>
+
+<div class="wrap"><div class="chrome-bar rv"></div></div>
+
+<header class="article-head rv">
+  <h1 data-i18n="article.title">Optimizing Async Rust: Patterns for Zero-Cost Concurrency</h1>
+  <div class="byline">
+    <span class="avatar">J</span>
+    <b>Jevik</b><span class="sep">·</span><span data-i18n="article.role">Developer</span><span class="sep">·</span>
+    <span>Oct 12, 2024</span><span class="sep">·</span><span>🕐 8 min read</span>
+  </div>
+</header>
+
+<div class="wrap"><div class="chrome-bar rv"></div></div>
+
+<main class="article-body rv">
+  <p data-i18n="article.p1">Async Rust has matured into a powerful tool for building high-performance systems, but writing concurrent code that is both efficient and maintainable still requires careful design. In this post, we'll explore patterns that keep your async code fast, predictable, and free from hidden allocations.</p>
+  <div class="pullquote"><p data-i18n="article.quote">Performance isn't free. It's earned through thoughtful concurrency and thoughtful memory layout.</p></div>
+  <p data-i18n="article.p2">The key is to avoid heap allocations in hot paths and to leverage Rust's zero-cost abstractions. By combining small executors with scoped tasks, you can retain full control while keeping overhead minimal.</p>
+  <div class="codeblock">
+    <div class="chead"><span class="dots"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></span><span style="margin-left:6px">main.rs</span><span style="margin-left:auto">📋</span></div>
+<pre><code><span class="kw">async fn</span> <span class="fn">process_items</span>(items: <span class="ty">Vec</span>&lt;Item&gt;) -&gt; <span class="ty">Result</span>&lt;(), Error&gt; {
+    <span class="kw">let</span> stream = stream::<span class="fn">iter</span>(items).<span class="fn">map</span>(|<span class="kw">move</span> item| <span class="kw">async move</span> {
+        <span class="fn">process_item</span>(item).<span class="kw">await</span>
+    });
+    stream.<span class="fn">buffer_unordered</span>(<span class="str">8</span>).<span class="fn">collect</span>::&lt;<span class="ty">Vec</span>&lt;_&gt;&gt;().<span class="kw">await</span>;
+    <span class="fn">Ok</span>(())
+}</code></pre>
+  </div>
+  <p data-i18n="article.p3">This pattern reduces contention by bounding concurrency to a fixed window while keeping the code readable and composable. We'll break down each piece and measure the performance impact in the next section.</p>
 </main>
 
-<footer class="site">
-  <div class="wrap">
-    <p>© 2026 Jevik · <span data-i18n="footer.tag">Designed &amp; hand-coded with care</span></p>
-    <div class="flinks">
-      <a href="blog.html" data-i18n="nav.blog">Blog</a>
-      <a href="contact.html" data-i18n="nav.contact2">Contact</a>
-    </div>
-  </div>
-</footer>
+<div class="wrap"><div class="chrome-bar rv"></div></div>
 
+<div class="prevnext">
+  <a class="pn-card card-hover rv" href="article.html">
+    <div class="k">← <span data-i18n="article.prev">Previous</span></div>
+    <h3 data-i18n="article.prevT">Structuring Large-Scale TypeScript Projects</h3>
+    <p data-i18n="article.prevD">Learn how to organize complex TS codebases with modular patterns and strict typing.</p>
+  </a>
+  <a class="pn-card card-hover rv" href="article.html">
+    <div class="k"><span data-i18n="article.next">Next Article</span> →</div>
+    <h3 data-i18n="article.nextT">WASM vs Native: When to Offload to the Browser</h3>
+    <p data-i18n="article.nextD">A practical guide to deciding when WebAssembly is the right tool for the job.</p>
+  </a>
+</div>
+
+<footer class="footer-line wrap" style="margin-top:40px">© 2024 Jevik · <span data-i18n="article.builtWith">Built with Rust + Next.js</span> · <span data-i18n="article.rights">All rights reserved</span></footer>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>

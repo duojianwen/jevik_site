@@ -3,102 +3,102 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title data-i18n="meta.title.detail">AIOps Agent — Jevik</title>
-<meta name="description" content="" data-i18n="meta.desc.detail" data-i18n-attr="content">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/styles.css">
-<script src="assets/js/i18n.js" defer></script>
-<script src="assets/js/main.js" defer></script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23ff8a3d'/%3E%3Cstop offset='1' stop-color='%233f8cff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Ctext x='32' y='44' font-family='sans-serif' font-weight='800' font-size='36' fill='white' text-anchor='middle'%3EJ%3C/text%3E%3C/svg%3E">
+<title>Nebula Analytics Dashboard — Jevik</title>
+<meta name="description" content="A real-time analytics platform built for scalable data insights and team collaboration.">
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="stylesheet" href="assets/css/main.css">
+<style>
+  .set-row{display:flex;align-items:center;justify-content:space-between;padding:9px 14px;font-size:11px;color:#3c4155}
+  .set-row .tg{width:34px;height:19px;border-radius:999px;background:#d7dce8;position:relative;flex:none}
+  .set-row .tg.on{background:linear-gradient(90deg,#ff9a4d,#3f8cff)}
+  .set-row .tg::after{content:"";position:absolute;top:2.5px;left:3px;width:14px;height:14px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.25)}
+  .set-row .tg.on::after{left:17px}
+</style>
 </head>
 <body>
-
-<nav class="nav-float wrap">
-  <a class="nav-logo" href="index.html" aria-label="Jevik home"><span class="cube"></span><span>Jevik</span></a>
+<nav class="nav nav-tabs"><div class="wrap"><div class="nav-inner">
+  <a class="nav-logo" href="index.html">
+    <svg class="cube" viewBox="0 0 48 48"><polygon points="24,4 42,14 24,24 6,14" fill="#ff9a4d"/><polygon points="6,14 24,24 24,44 6,34" fill="#3f8cff"/><polygon points="42,14 24,24 24,44 42,34" fill="#dfe6f5"/></svg>
+    Jevik</a>
   <div class="nav-links">
-    <a href="project-detail.html" class="active" data-i18n="nav.overview">Overview</a>
+    <a class="nav-tab on" href="project-detail.html" data-i18n="detail.overview">Overview</a>
+    <a class="nav-tab" href="projects.html" data-i18n="nav.projects">Projects</a>
+    <a class="nav-tab" href="project-detail.html" data-i18n="detail.cases">Case Studies</a>
+    <a class="nav-tab" href="about.html" data-i18n="nav.about">About</a>
+    <a class="btn btn-grad hide-m" href="contact.html" style="padding:11px 26px"><span data-i18n="nav.contact">Contact</span> →</a>
+  </div>
+  <div style="display:flex;gap:10px;align-items:center">
+    <button class="lang-btn" data-lang-toggle>中文</button>
+    <button class="burger" data-burger aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu">
+    <a href="project-detail.html" data-i18n="detail.overview">Overview</a>
     <a href="projects.html" data-i18n="nav.projects">Projects</a>
     <a href="about.html" data-i18n="nav.about">About</a>
+    <a href="contact.html" data-i18n="nav.contact">Contact</a>
   </div>
-  <div class="nav-cta">
-      <button class="burger" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
-    <div class="lang-toggle" role="group" aria-label="Language">
-      <button type="button" data-lang="en" class="on">EN</button>
-      <button type="button" data-lang="zh">中文</button>
+</div></div></nav>
+
+<header class="wrap detail-hero">
+  <div class="rv">
+    <span class="tag" data-i18n="detail.tag">Project Showcase · Case Study</span>
+    <h1 data-i18n="detail.title">Nebula Analytics Dashboard</h1>
+    <p class="lede" data-i18n="detail.lede">A real-time analytics platform built for scalable data insights and team collaboration. Designed and developed end-to-end to visualize complex datasets with low latency and intuitive UX for data teams.</p>
+    <div>
+      <span class="tech t-blue">⚛ React</span><span class="tech t-blue">TypeScript</span><span class="tech t-green">Node.js</span><span class="tech t-blue">PostgreSQL</span><span class="tech t-teal">Tailwind</span><span class="tech t-orange">Docker · AWS</span>
     </div>
-    <a class="btn btn-grad btn-sm" href="contact.html"><span data-i18n="nav.contact">Contact</span> →</a>
   </div>
-</nav>
+  <div class="detail-art rv"><img src="assets/img/detail-3d.png" alt="Nebula Analytics abstract 3D visual"></div>
+</header>
 
 <main class="wrap">
-  <!-- SHOWCASE -->
-  <section class="showcase">
-    <div>
-      <p class="eyebrow rv"><span class="dot"></span><span data-i18n="detail.eyebrow">Project showcase · Case study</span></p>
-      <h1 class="rv d1" data-i18n="detail.title">AIOps Agent</h1>
-      <p class="desc rv d2" data-i18n="detail.desc">An autonomous agent for production incidents: it triages alert storms, traces root causes across services, and drafts the incident report before you finish your coffee.</p>
-      <div class="tags rv d2">
-        <span class="tag t-orange">Python</span><span class="tag t-purple">LLM</span><span class="tag t-blue">Agent</span><span class="tag t-green">RAG</span><span class="tag t-gray">Docker</span>
-      </div>
-    </div>
-    <div class="showcase-visual rv d1">
-      <div class="frame"><img src="assets/img/detail-3d.png" alt="Chrome abstract artwork"></div>
-    </div>
-  </section>
-
-  <!-- GALLERY -->
-  <section class="block">
-    <div class="sec-head rv">
-      <div>
-        <h2 class="sec-title" data-i18n="detail.gallery">Screenshot Gallery</h2>
-        <p style="color:var(--ink-soft);margin-top:16px;" data-i18n="detail.gallery_sub">Key interfaces designed for clarity and speed</p>
-      </div>
-    </div>
+  <section>
+    <h2 style="font-size:34px" class="rv" data-i18n="detail.gallery">Screenshot Gallery</h2>
+    <p class="rv" style="color:var(--ink-soft);margin:6px 0 24px" data-i18n="detail.gallerySub">Key interfaces designed for clarity and speed</p>
     <div class="gallery">
-      <div class="g-card rv">
-        <div class="g-shot"><div class="mini-bars"><i style="height:38%"></i><i style="height:62%"></i><i style="height:45%"></i><i style="height:80%"></i><i style="height:55%"></i><i style="height:92%"></i></div></div>
-        <h4 data-i18n="detail.g1t">Alert Triage</h4>
-        <p data-i18n="detail.g1d">Noise reduction &amp; severity ranking</p>
+      <div class="g-card card-hover rv">
+        <div class="g-shot"><div class="mock-dash">
+          <div class="mrow"><div class="mock-bar" style="flex:.7">Sidebar</div><div class="mock-bar" style="flex:2"><div class="bars"><i style="height:40%"></i><i style="height:70%"></i><i style="height:52%"></i><i style="height:88%"></i><i style="height:64%"></i></div></div></div>
+        </div></div>
+        <h3 data-i18n="detail.g1t">Dashboard Overview</h3><p data-i18n="detail.g1d">Real-time metrics &amp; user activity feed</p>
       </div>
-      <div class="g-card rv d1">
-        <div class="g-shot"><div class="mini-nodes"><i style="left:16%;top:30%"></i><i style="left:44%;top:58%"></i><i style="left:70%;top:26%"></i><i style="left:58%;top:72%"></i></div></div>
-        <h4 data-i18n="detail.g2t">Root-Cause Graph</h4>
-        <p data-i18n="detail.g2d">Tracing faults across services</p>
+      <div class="g-card card-hover rv">
+        <div class="g-shot light"><div class="mock-dash" style="color:#3c4155">
+          <div class="mrow"><div class="mock-bar" style="flex:2;background:#fff;box-shadow:var(--shadow-sm)"><b>Analytics</b><div class="bars"><i style="height:45%"></i><i style="height:75%"></i><i style="height:58%"></i><i style="height:92%"></i><i style="height:66%"></i><i style="height:80%"></i></div></div><div class="mock-bar" style="flex:1;background:#fff;box-shadow:var(--shadow-sm)"><div class="donut"></div></div></div>
+        </div></div>
+        <h3 data-i18n="detail.g2t">Analytics Deep Dive</h3><p data-i18n="detail.g2d">Custom filters &amp; segmentation</p>
       </div>
-      <div class="g-card rv d2">
-        <div class="g-shot"><div class="mini-doc"><i></i><i></i><i></i><i></i><i style="width:74%"></i></div></div>
-        <h4 data-i18n="detail.g3t">Incident Report</h4>
-        <p data-i18n="detail.g3d">Auto-drafted, human-approved</p>
+      <div class="g-card card-hover rv">
+        <div class="g-shot light" style="text-align:left">
+          <div style="padding:14px"><b style="font-size:12px;color:#3c4155">Settings</b>
+            <div class="set-row"><span>Notifications</span><span class="tg"></span></div>
+            <div class="set-row"><span>API Access</span><span class="tg on"></span></div>
+            <div class="set-row"><span>Team Sync</span><span class="tg"></span></div>
+          </div>
+        </div>
+        <h3 data-i18n="detail.g3t">Settings &amp; Integrations</h3><p data-i18n="detail.g3d">Secure API &amp; team access</p>
       </div>
     </div>
   </section>
 
-  <!-- STATS -->
-  <div class="stats-bar rv">
-    <div class="stat"><div class="num">90%</div><div class="lbl" data-i18n="detail.s1">Alert noise reduced</div></div>
-    <div class="stat"><div class="num">&lt;5<span style="font-size:.6em;">min</span></div><div class="lbl" data-i18n="detail.s2">Root-cause time</div></div>
-    <div class="stat"><div class="num">24/7</div><div class="lbl" data-i18n="detail.s3">Always watching</div></div>
-    <div class="stat"><div class="num">100%</div><div class="lbl" data-i18n="detail.s4">Report coverage</div></div>
+  <div class="stats-bar rv" style="margin-top:44px">
+    <div class="stat"><div class="num">400k+</div><div class="lbl" data-i18n="detail.m1">Active Users</div></div>
+    <div class="stat"><div class="num">99.9%</div><div class="lbl" data-i18n="detail.m2">Uptime Reliability</div></div>
+    <div class="stat"><div class="num">60%</div><div class="lbl" data-i18n="detail.m3">Faster Load Time</div></div>
+    <div class="stat"><div class="num">2.5s</div><div class="lbl" data-i18n="detail.m4">Avg Response Speed</div></div>
   </div>
 
-  <p class="role-line rv"><span data-i18n="detail.role">Role: Backend × LLM Engineer</span> · 2025 — <span data-i18n="detail.role2">Design &amp; Engineering</span></p>
-  <div class="tags rv" style="justify-content:center;margin-bottom:70px;">
-    <span class="tag" data-i18n="detail.t1">Agent Design</span>
-    <span class="tag" data-i18n="detail.t2">RAG</span>
-    <span class="tag" data-i18n="detail.t3">Production Hardening</span>
+  <p class="meta-line rv"><b data-i18n="detail.role">Role:</b> <span data-i18n="detail.roleV">Full Stack Developer</span> · 2024 — <span data-i18n="detail.scope">Product Design &amp; Engineering</span></p>
+  <div class="center-pills rv">
+    <span class="pill" data-i18n="detail.t1">UI/UX Design</span>
+    <span class="pill" data-i18n="detail.t2">Performance</span>
+    <span class="pill" data-i18n="detail.t3">Scalable Architecture</span>
   </div>
 </main>
 
-<footer class="site">
-  <div class="wrap">
-    <p>© 2026 Jevik · <span data-i18n="footer.tag">Designed &amp; hand-coded with care</span></p>
-    <div class="flinks">
-      <a href="projects.html" data-i18n="nav.projects">Projects</a>
-      <a href="contact.html" data-i18n="nav.contact2">Contact</a>
-    </div>
-  </div>
-</footer>
-
+<footer class="footer-line wrap">© 2024 Jevik · <span data-i18n="home.builtWith">Built with Next.js &amp; Tailwind</span> · <a href="#">Privacy</a> · <a href="#">Credits</a></footer>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>

@@ -4,3 +4,4 @@
 
 # 二进制文件不做任何转换
 *.png binary
+*.woff2 binary
