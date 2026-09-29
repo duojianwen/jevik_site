@@ -1,0 +1,15 @@
+# 阻止以下仓库文件被当作静态资产上传（语法同 .gitignore）
+# 站点本体 = 根目录 7 个 html + assets/，共 19 个文件
+.assetsignore
+.claude/
+.git/
+.gitignore
+.wrangler/
+README.md
+docs/
+example/
+node_modules/
+package.json
+package-lock.json
+wrangler.jsonc
+.gitattributes

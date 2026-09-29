@@ -1,0 +1,15 @@
+# 参考材料仅保留在本地（复刻副本已在根目录，截图不入库）
+example/
+
+# Claude Code 本地会话配置
+.claude/
+
+# 构建产物与依赖
+node_modules/
+.wrangler/
+
+# 环境与 OS 垃圾文件
+.dev.vars
+.DS_Store
+Thumbs.db
+desktop.ini

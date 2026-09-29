@@ -1,0 +1,6 @@
+# 字节级保真保护：文本文件一律 LF 检出（与原站文件行尾一致），
+# 防止 Windows autocrlf 把工作区改写成 CRLF 后部署漂移
+* text=auto eol=lf
+
+# 二进制文件不做任何转换
+*.png binary

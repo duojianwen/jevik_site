@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-i18n="meta.title.blog">Blog — Jevik</title>
+<meta name="description" content="" data-i18n="meta.desc.blog" data-i18n-attr="content">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+<script src="assets/js/i18n.js" defer></script>
+<script src="assets/js/main.js" defer></script>
+</head>
+<body>
+
+<nav class="nav-float wrap">
+  <a class="nav-logo" href="index.html" aria-label="Jevik home"><span class="cube"></span><span class="chrome chrome-warm chrome-3d">Jevik</span></a>
+  <div class="nav-links">
+    <a href="blog.html" class="active" data-i18n="nav.blog">Blog</a>
+    <a href="projects.html" data-i18n="nav.projects">Projects</a>
+    <a href="about.html" data-i18n="nav.about">About</a>
+    <a href="contact.html" data-i18n="nav.contact">Contact</a>
+  </div>
+  <div class="nav-cta">
+      <button class="burger" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button type="button" data-lang="en" class="on">EN</button>
+      <button type="button" data-lang="zh">中文</button>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap">
+  <header class="page-head">
+    <h1 class="blog-hero-title rv" data-i18n="blog.title">Insights for modern developers</h1>
+    <p class="blog-hero-sub rv d1" data-i18n="blog.sub">Thoughts on engineering, systems, and building better software — written by Jevik</p>
+    <div class="filters rv d2" data-filter-group="blog">
+      <button class="fpill on" data-filter="all" data-i18n="blog.f_all">All</button>
+      <button class="fpill" data-filter="ai" data-i18n="blog.f_ai">AI</button>
+      <button class="fpill" data-filter="backend" data-i18n="blog.f_backend">Backend</button>
+      <button class="fpill" data-filter="rag" data-i18n="blog.f_rag">RAG</button>
+      <button class="fpill" data-filter="devops" data-i18n="blog.f_devops">DevOps</button>
+    </div>
+  </header>
+
+  <!-- FEATURED -->
+  <section class="featured">
+    <div class="featured-card rv">
+      <span class="cat" data-i18n="blog.featured">Featured post</span>
+      <h2 data-i18n="blog.feat_t">RAG in Production: What Actually Breaks</h2>
+      <p class="meta" data-i18n="blog.feat_meta">Sep 2026 · 8 min read</p>
+      <p data-i18n="blog.feat_d">Chunking, retrieval, evals — the unglamorous parts that decide whether your RAG survives real users. Notes from the trenches.</p>
+      <div><a class="btn btn-grad btn-sm" href="article.html"><span data-i18n="blog.read">Read article</span> →</a></div>
+    </div>
+    <div class="featured-img rv d1"><img src="assets/img/blog-dark.png" alt="Glass cube network artwork"></div>
+  </section>
+
+  <!-- LATEST -->
+  <section class="block" style="padding-top:10px;">
+    <div class="sec-head rv"><h2 class="sec-title" data-i18n="blog.latest">Latest Articles</h2></div>
+    <div class="latest-list rv d1" id="blog-list">
+      <a class="latest-row" href="article.html" data-cat="ai">
+        <span class="cat" data-i18n="blog.c_ai">AI</span>
+        <div><h3 data-i18n="blog.a1t">Building Agents That Don't Hallucinate Their Tools</h3><p class="meta" data-i18n="blog.a1m">Aug 2026 · 6 min read</p></div>
+        <span class="arrow-circle">→</span>
+      </a>
+      <a class="latest-row" href="article.html" data-cat="backend">
+        <span class="cat" data-i18n="blog.c_backend">Backend</span>
+        <div><h3 data-i18n="blog.a2t">Designing APIs That Survive Version Three</h3><p class="meta" data-i18n="blog.a2m">Jul 2026 · 7 min read</p></div>
+        <span class="arrow-circle">→</span>
+      </a>
+      <a class="latest-row" href="article.html" data-cat="rag">
+        <span class="cat" data-i18n="blog.c_rag">RAG</span>
+        <div><h3 data-i18n="blog.a3t">Hybrid Search: When BM25 Beats Vectors</h3><p class="meta" data-i18n="blog.a3m">Jun 2026 · 5 min read</p></div>
+        <span class="arrow-circle">→</span>
+      </a>
+      <a class="latest-row" href="article.html" data-cat="devops">
+        <span class="cat" data-i18n="blog.c_devops">DevOps</span>
+        <div><h3 data-i18n="blog.a4t">My Content Automation Pipeline, End to End</h3><p class="meta" data-i18n="blog.a4m">May 2026 · 10 min read</p></div>
+        <span class="arrow-circle">→</span>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p>© 2026 Jevik · <span data-i18n="footer.tag3">Built with focus on performance &amp; clarity</span></p>
+    <div class="flinks">
+      <a href="blog.html">RSS</a>
+      <a href="https://github.com/jevik" target="_blank" rel="noopener">GitHub</a>
+      <a href="contact.html" data-i18n="nav.contact2">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

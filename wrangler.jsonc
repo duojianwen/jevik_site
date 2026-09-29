@@ -1,0 +1,17 @@
+{
+  // Cloudflare Workers 静态资产配置（assets-only，无需 Worker 脚本入口）
+  // 文档：https://developers.cloudflare.com/workers/wrangler/configuration/
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  // Worker 名称，必须与 Cloudflare 控制台中的 Worker 名一致（否则 git 构建失败）
+  "name": "jevik-site",
+  "compatibility_date": "2026-09-29",
+  "assets": {
+    // 站点文件直接位于仓库根目录，无构建步骤
+    // 非站点文件由根目录的 .assetsignore 排除（example/、docs/、配置文件等）
+    "directory": "./",
+    // 干净 URL：/about 直接返回 about.html 内容；/about.html 307 重定向到 /about
+    "html_handling": "auto-trailing-slash",
+    // 原站没有 404.html，未命中路径返回普通 404
+    "not_found_handling": "none"
+  }
+}

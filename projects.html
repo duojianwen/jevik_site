@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-i18n="meta.title.projects">Projects — Jevik</title>
+<meta name="description" content="" data-i18n="meta.desc.projects" data-i18n-attr="content">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+<script src="assets/js/i18n.js" defer></script>
+<script src="assets/js/main.js" defer></script>
+</head>
+<body>
+
+<nav class="nav-float wrap">
+  <a class="nav-logo" href="index.html" aria-label="Jevik home"><span class="cube"></span><span>Jevik</span></a>
+  <div class="nav-links">
+    <a href="about.html" data-i18n="nav.about">About</a>
+    <a href="projects.html" class="active" data-i18n="nav.projects">Projects</a>
+    <a href="blog.html" data-i18n="nav.blog">Blog</a>
+    <a href="contact.html" data-i18n="nav.contact">Contact</a>
+  </div>
+  <div class="nav-cta">
+      <button class="burger" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button type="button" data-lang="en" class="on">EN</button>
+      <button type="button" data-lang="zh">中文</button>
+    </div>
+    <a class="btn btn-grad btn-sm" href="contact.html" data-i18n="nav.hire">Hire Me</a>
+  </div>
+</nav>
+
+<main class="wrap" style="position:relative;">
+  <span class="bubble b1"></span><span class="bubble b2"></span><span class="bubble b3"></span>
+
+  <header class="page-head">
+    <p class="eyebrow rv" style="margin-bottom:20px;"><span class="dot"></span><span data-i18n="projects.eyebrow">Selected work</span></p>
+    <h1 class="page-title rv d1" data-i18n="projects.title">Projects</h1>
+    <p class="page-sub rv d2" data-i18n="projects.sub">A curated collection of builds, experiments, and products — designed &amp; engineered with focus on performance, usability, and clean architecture.</p>
+    <div class="filters rv d2" data-filter-group="projects">
+      <span class="flabel" data-i18n="projects.filter">FILTER:</span>
+      <button class="fpill on" data-filter="all" data-i18n="projects.f_all">All</button>
+      <button class="fpill" data-filter="agent" data-i18n="projects.f_agent">AI Agent</button>
+      <button class="fpill" data-filter="rag" data-i18n="projects.f_rag">RAG</button>
+      <button class="fpill" data-filter="backend" data-i18n="projects.f_backend">Backend</button>
+      <button class="fpill" data-filter="automation" data-i18n="projects.f_auto">Automation</button>
+    </div>
+  </header>
+
+  <section class="block" style="padding-top:20px;">
+    <div class="grid-3" id="project-grid">
+      <a class="card rv" href="project-detail.html" data-cat="agent">
+        <div class="thumb"><img src="assets/img/thumb-aiops.png" alt="AIOps Agent"></div>
+        <div class="body">
+          <h3 data-i18n="projects.p1t">AIOps Agent</h3>
+          <p data-i18n="projects.p1d">Autonomous incident triage: alert noise reduction, root-cause analysis, and report drafting.</p>
+          <div class="tags"><span class="tag t-orange">Python</span><span class="tag t-purple">LLM</span><span class="tag t-blue">Agent</span></div>
+        </div>
+      </a>
+      <a class="card rv d1" href="project-detail.html" data-cat="automation">
+        <div class="thumb"><img src="assets/img/thumb-pipeline.png" alt="Content pipeline"></div>
+        <div class="body">
+          <h3 data-i18n="projects.p2t">Content Pipeline</h3>
+          <p data-i18n="projects.p2d">Idea → draft → publish, fully automated across X and Xiaohongshu.</p>
+          <div class="tags"><span class="tag t-orange">Python</span><span class="tag t-teal">Workflow</span><span class="tag t-gray">CI/CD</span></div>
+        </div>
+      </a>
+      <a class="card rv d2" href="project-detail.html" data-cat="rag">
+        <div class="thumb"><img src="assets/img/thumb-kb.png" alt="Knowledge base"></div>
+        <div class="body">
+          <h3 data-i18n="projects.p3t">Knowledge Base</h3>
+          <p data-i18n="projects.p3d">Hybrid retrieval over local documents with grounded citations and fast answers.</p>
+          <div class="tags"><span class="tag t-orange">Python</span><span class="tag t-green">RAG</span><span class="tag t-blue">Vector DB</span></div>
+        </div>
+      </a>
+      <a class="card rv" href="project-detail.html" data-cat="backend">
+        <div class="thumb"><img src="assets/img/thumb-gateway.png" alt="API gateway"></div>
+        <div class="body">
+          <h3 data-i18n="projects.p4t">API Gateway</h3>
+          <p data-i18n="projects.p4d">Microservice gateway with auth, rate limiting, and end-to-end observability.</p>
+          <div class="tags"><span class="tag t-red">Java</span><span class="tag t-green">Spring Cloud</span><span class="tag t-gray">Docker</span></div>
+        </div>
+      </a>
+      <a class="card rv d1" href="project-detail.html" data-cat="rag">
+        <div class="thumb"><img src="assets/img/thumb-docqa.png" alt="Doc QA assistant"></div>
+        <div class="body">
+          <h3 data-i18n="projects.p5t">Doc QA Assistant</h3>
+          <p data-i18n="projects.p5d">Ask questions over your documents, get answers with sources attached.</p>
+          <div class="tags"><span class="tag t-orange">Python</span><span class="tag t-purple">LLM</span><span class="tag t-pink">RAG</span></div>
+        </div>
+      </a>
+      <a class="card rv d2" href="project-detail.html" data-cat="automation">
+        <div class="thumb"><img src="assets/img/thumb-toolbox.png" alt="Deploy toolbox"></div>
+        <div class="body">
+          <h3 data-i18n="projects.p6t">Deploy Toolbox</h3>
+          <p data-i18n="projects.p6d">One-command packaging, release, and rollback tooling for backend services.</p>
+          <div class="tags"><span class="tag t-orange">Python</span><span class="tag t-dark">CLI</span><span class="tag t-blue">CI/CD</span></div>
+        </div>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p>© 2026 Jevik · <span data-i18n="projects.count">6 Projects</span> · <span data-i18n="footer.tag2">Crafted with precision</span></p>
+    <div class="flinks">
+      <a href="https://github.com/jevik" target="_blank" rel="noopener">GitHub</a>
+      <a href="contact.html" data-i18n="nav.contact2">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

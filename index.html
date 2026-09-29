@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-i18n="meta.title.index">Jevik — Backend × LLM Engineer</title>
+<meta name="description" content="" data-i18n="meta.desc.index" data-i18n-attr="content">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+<script src="assets/js/i18n.js" defer></script>
+<script src="assets/js/main.js" defer></script>
+</head>
+<body>
+
+<nav class="nav-float wrap">
+  <a class="nav-logo" href="index.html" aria-label="Jevik home"><span class="cube"></span><span>Jevik</span></a>
+  <div class="nav-links">
+    <a href="about.html" data-i18n="nav.about">About</a>
+    <a href="projects.html" data-i18n="nav.projects">Projects</a>
+    <a href="blog.html" data-i18n="nav.blog">Blog</a>
+    <a href="contact.html" data-i18n="nav.contact">Contact</a>
+  </div>
+  <div class="nav-cta">
+      <button class="burger" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button type="button" data-lang="en" class="on">EN</button>
+      <button type="button" data-lang="zh">中文</button>
+    </div>
+    <a class="btn btn-grad btn-sm" href="contact.html" data-i18n="nav.hire">Hire Me</a>
+  </div>
+</nav>
+
+<main class="wrap">
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <h1 class="hero-title rv">Jevik</h1>
+      <p class="hero-role rv d1" data-i18n="hero.role">Backend × LLM Engineer</p>
+      <p class="hero-desc rv d2" data-i18n="hero.desc">I build reliable backend systems and LLM-powered products — RAG, agents, and workflow orchestration that survive production.</p>
+      <div class="hero-btns rv d3">
+        <a class="btn btn-grad" href="projects.html" data-i18n="hero.view">View Projects</a>
+        <a class="btn btn-ghost" href="contact.html" data-i18n="hero.touch">Get in Touch</a>
+      </div>
+    </div>
+    <div class="hero-visual rv d1">
+      <div class="frame"><img src="assets/img/hero-3d.png" alt="Abstract chrome and glass 3D artwork"></div>
+      <div class="float-chip"><span class="pulse"></span><span data-i18n="hero.chip">Open for collaborations</span></div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="block">
+    <div class="sec-head rv">
+      <h2 class="sec-title" data-i18n="home.sec_projects">Projects</h2>
+      <a class="sec-link" href="projects.html"><span data-i18n="home.viewall">View all</span> →</a>
+    </div>
+    <div class="grid-3">
+      <a class="card rv" href="project-detail.html">
+        <div class="thumb"><img src="assets/img/thumb-aiops.png" alt="AIOps Agent"></div>
+        <div class="body">
+          <span class="cat" data-i18n="home.p1cat">AI · Agent</span>
+          <h3 data-i18n="home.p1t">AIOps Agent</h3>
+          <p data-i18n="home.p1d">An autonomous agent that triages alerts, finds root causes, and drafts incident reports.</p>
+        </div>
+      </a>
+      <a class="card rv d1" href="projects.html">
+        <div class="thumb"><img src="assets/img/thumb-pipeline.png" alt="Content pipeline"></div>
+        <div class="body">
+          <span class="cat" data-i18n="home.p2cat">Automation</span>
+          <h3 data-i18n="home.p2t">Content Pipeline</h3>
+          <p data-i18n="home.p2d">From idea to published post — an automated pipeline for content creation and distribution.</p>
+        </div>
+      </a>
+      <a class="card rv d2" href="projects.html">
+        <div class="thumb"><img src="assets/img/thumb-kb.png" alt="Knowledge base"></div>
+        <div class="body">
+          <span class="cat" data-i18n="home.p3cat">RAG</span>
+          <h3 data-i18n="home.p3t">Knowledge Base</h3>
+          <p data-i18n="home.p3d">Local-first knowledge base with hybrid retrieval for fast, grounded answers.</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ARTICLES -->
+  <section class="block">
+    <div class="sec-head rv">
+      <h2 class="sec-title" data-i18n="home.sec_articles">Articles</h2>
+      <a class="sec-link" href="blog.html"><span data-i18n="home.allarticles">All articles</span> →</a>
+    </div>
+    <div class="grid-3">
+      <a class="card rv" href="article.html">
+        <div class="body">
+          <span class="meta" data-i18n="home.a1date">Sep 2026 · 8 min read</span>
+          <h3 data-i18n="home.a1t">RAG in Production: What Actually Breaks</h3>
+          <p data-i18n="home.a1d">Chunking, retrieval, evals — the unglamorous parts that decide whether your RAG survives real users.</p>
+        </div>
+      </a>
+      <a class="card rv d1" href="blog.html">
+        <div class="body">
+          <span class="meta" data-i18n="home.a2date">Aug 2026 · 6 min read</span>
+          <h3 data-i18n="home.a2t">Building Agents That Don't Hallucinate Their Tools</h3>
+          <p data-i18n="home.a2d">Guardrails, schemas, and verification loops for agents you can actually trust.</p>
+        </div>
+      </a>
+      <a class="card rv d2" href="blog.html">
+        <div class="body">
+          <span class="meta" data-i18n="home.a3date">Jul 2026 · 10 min read</span>
+          <h3 data-i18n="home.a3t">My Content Automation Pipeline, End to End</h3>
+          <p data-i18n="home.a3d">How I turned scattered ideas into a daily publishing pipeline with a few Python scripts.</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="block" style="text-align:center;">
+    <h2 class="sec-title rv" style="margin-bottom:18px;" data-i18n="home.sec_contact">Contact</h2>
+    <p class="rv d1" style="color:var(--ink-soft);font-size:18px;max-width:60ch;margin:0 auto;" data-i18n="home.contact_lead">Let's work together — open for freelance &amp; collabs.</p>
+    <div class="rv d2" style="margin-top:30px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;align-items:center;">
+      <a class="social-pill" href="mailto:hello@jevik.dev">✉️ hello@jevik.dev</a>
+      <a class="social-pill" href="https://github.com/jevik" target="_blank" rel="noopener">GitHub</a>
+      <a class="social-pill" href="https://x.com/jevik_dev" target="_blank" rel="noopener">X</a>
+      <a class="btn btn-grad" href="contact.html" data-i18n="hero.touch2">Get in Touch</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p>© 2026 Jevik · <span data-i18n="footer.tag">Designed &amp; hand-coded with care</span></p>
+    <div class="flinks">
+      <a href="blog.html">RSS</a>
+      <a href="https://github.com/jevik" target="_blank" rel="noopener">GitHub</a>
+      <a href="contact.html" data-i18n="nav.contact2">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

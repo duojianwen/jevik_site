@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-i18n="meta.title.article">RAG in Production: What Actually Breaks — Jevik</title>
+<meta name="description" content="" data-i18n="meta.desc.article" data-i18n-attr="content">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+<script src="assets/js/i18n.js" defer></script>
+<script src="assets/js/main.js" defer></script>
+</head>
+<body>
+
+<nav class="nav-float wrap">
+  <a class="nav-logo" href="index.html" aria-label="Jevik home"><span class="cube"></span><span>dev<span class="grad-text">/jevik</span></span></a>
+  <div class="nav-links">
+    <a href="blog.html" class="active" data-i18n="nav.articles">Articles</a>
+    <a href="projects.html" data-i18n="nav.projects">Projects</a>
+    <a href="about.html" data-i18n="nav.about">About</a>
+  </div>
+  <div class="nav-cta">
+      <button class="burger" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button type="button" data-lang="en" class="on">EN</button>
+      <button type="button" data-lang="zh">中文</button>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap">
+  <header class="article-head">
+    <p class="eyebrow rv" style="margin-bottom:22px;"><span class="dot"></span><span data-i18n="article.kicker">RAG · Production notes</span></p>
+    <h1 class="article-title rv d1" data-i18n="article.title">RAG in Production: What Actually Breaks</h1>
+    <div class="byline rv d2">
+      <span class="avatar">J</span>
+      <span><b>Jevik</b> · <span data-i18n="article.role">Engineer</span></span>
+      <span>·</span><span data-i18n="article.date">Sep 2026</span>
+      <span>·</span><span data-i18n="article.read">8 min read</span>
+    </div>
+  </header>
+
+  <div class="glass-rule"></div>
+
+  <article class="article-body">
+    <p class="rv" data-i18n="article.p1">Demos make RAG look easy: chunk some docs, embed them, wrap it in a chat UI, done. Production is where the demo goes to die — on weird PDFs, on questions nobody predicted, on retrieval that confidently returns the wrong paragraph.</p>
+    <p class="rv" data-i18n="article.p2">After shipping a few of these systems, I've learned the failures cluster in three places: chunking, retrieval, and evaluation. Get those right and everything else is polish. Get them wrong and no prompt trick will save you.</p>
+
+    <div class="quote-block rv" data-i18n="article.quote">Retrieval quality is a data problem wearing a model costume. Fix the corpus before you tune the prompt.</div>
+
+    <h2 class="rv" data-i18n="article.h2">Start with the corpus, not the model</h2>
+    <p class="rv" data-i18n="article.p3">Most broken RAG systems I see don't have a model problem — they have a garbage-in problem. Scanned PDFs with mangled tables, duplicated Confluence pages, five versions of the same runbook. The retriever dutifully returns junk, and the model dutifully summarizes it.</p>
+
+    <div class="code-block rv">
+      <div class="code-head"><span class="d" style="background:#ff5f57"></span><span class="d" style="background:#febc2e"></span><span class="d" style="background:#28c840"></span><span class="fname">chunk.py</span></div>
+<pre><span class="tok-k">def</span> <span class="tok-f">chunk_document</span>(doc, max_tokens=<span class="tok-s">512</span>):
+    <span class="tok-c"># split on structure first, tokens second</span>
+    sections = <span class="tok-f">split_by_headings</span>(doc)
+    chunks = []
+    <span class="tok-k">for</span> s <span class="tok-k">in</span> sections:
+        chunks += <span class="tok-f">sliding_window</span>(s, max_tokens, overlap=<span class="tok-s">64</span>)
+    <span class="tok-k">return</span> [<span class="tok-f">attach_metadata</span>(c, doc) <span class="tok-k">for</span> c <span class="tok-k">in</span> chunks]</pre>
+    </div>
+
+    <p class="rv" data-i18n="article.p4">Structure-aware chunking with overlap beats naive fixed-size splits almost every time. And metadata — source, section, date — is what lets you filter and cite instead of guessing.</p>
+    <p class="rv" data-i18n="article.p5">Next: hybrid retrieval. Pure vector search misses exact terms; pure keyword search misses meaning. Combine them, rerank the top candidates, and measure everything with a small golden eval set. If you can't measure a change, you can't ship it.</p>
+  </article>
+
+  <div class="prev-next">
+    <a class="pn-card rv" href="blog.html">
+      <span class="dir" data-i18n="article.prev">← Previous</span>
+      <h3 data-i18n="article.prev_t">Building Agents That Don't Hallucinate Their Tools</h3>
+      <p data-i18n="article.prev_d">Guardrails, schemas, and verification loops.</p>
+    </a>
+    <a class="pn-card next rv d1" href="blog.html">
+      <span class="dir" data-i18n="article.next">Next article →</span>
+      <h3 data-i18n="article.next_t">Hybrid Search: When BM25 Beats Vectors</h3>
+      <p data-i18n="article.next_d">Old-school keyword search still earns its place.</p>
+    </a>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p>© 2026 Jevik · <span data-i18n="footer.tag">Designed &amp; hand-coded with care</span></p>
+    <div class="flinks">
+      <a href="blog.html" data-i18n="nav.blog">Blog</a>
+      <a href="contact.html" data-i18n="nav.contact2">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

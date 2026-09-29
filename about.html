@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-i18n="meta.title.about">About — Jevik</title>
+<meta name="description" content="" data-i18n="meta.desc.about" data-i18n-attr="content">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+<script src="assets/js/i18n.js" defer></script>
+<script src="assets/js/main.js" defer></script>
+</head>
+<body>
+
+<nav class="nav-float wrap">
+  <a class="nav-logo" href="index.html" aria-label="Jevik home"><span class="chrome chrome-warm chrome-3d" style="font-size:30px;">JEVIK</span></a>
+  <div class="nav-links">
+    <a href="index.html" data-i18n="nav.home">Home</a>
+    <a href="about.html" class="active" data-i18n="nav.about_u">About</a>
+    <a href="projects.html" data-i18n="nav.projects_u">Projects</a>
+    <a href="blog.html" data-i18n="nav.blog_u">Blog</a>
+    <a href="contact.html" data-i18n="nav.contact_u">Contact</a>
+  </div>
+  <div class="nav-cta">
+      <button class="burger" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button type="button" data-lang="en" class="on">EN</button>
+      <button type="button" data-lang="zh">中文</button>
+    </div>
+    <a class="btn btn-ghost btn-sm" href="contact.html" data-i18n="nav.getintouch">Get in Touch</a>
+  </div>
+</nav>
+
+<main class="wrap">
+  <div class="about-grid">
+    <!-- LEFT -->
+    <div>
+      <div class="photo-frame rv">
+        <span class="ring" style="width:70px;height:70px;top:-24px;right:36px;"></span>
+        <span class="ring" style="width:44px;height:44px;bottom:-16px;left:52px;"></span>
+        <div class="ph"><span class="mono">J</span></div>
+      </div>
+      <div class="about-name chrome chrome-warm chrome-3d rv d1">JEVIK</div>
+      <p class="about-tags rv d1" data-i18n="about.tags">DEVELOPER — BUILDER — OPEN SOURCE</p>
+      <h2 class="about-title chrome chrome-warm chrome-3d rv d2" data-i18n="about.title">ABOUT</h2>
+      <div class="about-bio rv d2">
+        <p data-i18n="about.bio1">I'm Jevik, a backend engineer working on LLM applications — RAG, agents, and workflow orchestration. I care about systems that survive production: clean architecture, honest evals, and boring reliability.</p>
+        <p data-i18n="about.bio2">Day to day I work with Java Spring Cloud microservices and Python LLM stacks. On the side I build in public: automation pipelines, AIOps experiments, and notes from the trenches.</p>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div>
+      <h2 class="chrome-h chrome chrome-warm chrome-3d rv" data-i18n="about.timeline">CAREER TIMELINE</h2>
+      <div class="timeline">
+        <div class="tl-item rv">
+          <span class="tl-year">2025</span>
+          <h3 data-i18n="about.t1t">Independent Engineer · LLM Applications</h3>
+          <p data-i18n="about.t1d">Shipping RAG systems, agents, and content automation — building in public.</p>
+        </div>
+        <div class="tl-item rv d1">
+          <span class="tl-year">2022</span>
+          <h3 data-i18n="about.t2t">Backend Engineer · Microservices</h3>
+          <p data-i18n="about.t2d">Java Spring Cloud services: APIs, gateways, and the observability to keep them honest.</p>
+        </div>
+        <div class="tl-item rv d2">
+          <span class="tl-year">2020</span>
+          <h3 data-i18n="about.t3t">Software Engineer · Backend</h3>
+          <p data-i18n="about.t3d">Core backend APIs in Python; CI/CD pipelines and reliability work.</p>
+        </div>
+      </div>
+
+      <h2 class="chrome-h chrome chrome-warm chrome-3d rv" data-i18n="about.skills">SKILLS</h2>
+      <div class="skill-grid">
+        <div class="skill-tile rv"><div class="ic">Py</div><div class="nm">Python</div></div>
+        <div class="skill-tile rv d1"><div class="ic">Jv</div><div class="nm">Java</div></div>
+        <div class="skill-tile rv d2"><div class="ic">Sp</div><div class="nm">Spring</div></div>
+        <div class="skill-tile rv d3"><div class="ic">Rg</div><div class="nm">RAG</div></div>
+        <div class="skill-tile rv"><div class="ic">Ag</div><div class="nm">Agents</div></div>
+        <div class="skill-tile rv d1"><div class="ic">Wf</div><div class="nm">Workflow</div></div>
+        <div class="skill-tile rv d2"><div class="ic">Dk</div><div class="nm">Docker</div></div>
+        <div class="skill-tile rv d3"><div class="ic">K8</div><div class="nm">K8s</div></div>
+      </div>
+    </div>
+  </div>
+
+  <p class="about-foot rv"><span data-i18n="about.foot">Available for freelance &amp; collaborations</span> — <b>jevik.dev</b> — <b>hello@jevik.dev</b></p>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p>© 2026 Jevik · <span data-i18n="footer.tag">Designed &amp; hand-coded with care</span></p>
+    <div class="flinks">
+      <a href="https://github.com/jevik" target="_blank" rel="noopener">GitHub</a>
+      <a href="contact.html" data-i18n="nav.contact2">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
