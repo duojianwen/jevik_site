@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23ff8a3d'/%3E%3Cstop offset='1' stop-color='%233f8cff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Ctext x='32' y='44' font-family='sans-serif' font-weight='800' font-size='36' fill='white' text-anchor='middle'%3EJ%3C/text%3E%3C/svg%3E">
-<title>Blog — Jevik</title>
-<meta name="description" content="Thoughts on engineering, systems, and building better software — written by Jevik.">
+<title data-i18n="meta.blogT">博客 — Jevik</title>
+<meta name="description" content="关于工程、系统与构建更好软件的思考——由 Jevik 撰写。" data-i18n-content="meta.blogD">
 <link rel="stylesheet" href="assets/fonts/fonts.css">
 <link rel="stylesheet" href="assets/css/main.css">
 </head>
@@ -15,35 +15,39 @@
   <div class="bubble" style="width:30px;height:30px;right:60px;top:-44px"></div>
   <a class="nav-logo" href="index.html"><span class="logo-3d">Jevik</span></a>
   <div class="nav-links">
-    <a href="blog.html" class="on" data-i18n="nav.blog">Blog</a>
-    <a href="projects.html" data-i18n="nav.projects">Projects</a>
-    <a href="about.html" data-i18n="nav.about">About</a>
-    <a href="contact.html" data-i18n="nav.contact">Contact</a>
+    <a href="blog.html" class="on" data-i18n="nav.blog">博客</a>
+    <a href="projects.html" data-i18n="nav.projects">项目</a>
+    <a href="about.html" data-i18n="nav.about">关于</a>
+    <a href="contact.html" data-i18n="nav.contact">联系</a>
   </div>
   <div style="display:flex;gap:10px;align-items:center">
-    <button class="lang-btn" data-lang-toggle>中文</button>
-    <a class="btn btn-grad hide-m" href="contact.html" data-i18n="nav.subscribe" style="padding:12px 28px">Subscribe</a>
+    <div class="lang-switch" data-lang-toggle>
+      <span class="ls-slider" aria-hidden="true"></span>
+      <button type="button" data-lang="zh" class="active" aria-pressed="true">中</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+    <a class="btn btn-grad hide-m" href="contact.html" data-i18n="nav.subscribe" style="padding:12px 28px">订阅</a>
     <button class="burger" data-burger aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
   <div class="mobile-menu">
-    <a href="blog.html" data-i18n="nav.blog">Blog</a>
-    <a href="projects.html" data-i18n="nav.projects">Projects</a>
-    <a href="about.html" data-i18n="nav.about">About</a>
-    <a href="contact.html" data-i18n="nav.contact">Contact</a>
-    <a href="contact.html" data-i18n="nav.subscribe">Subscribe</a>
+    <a href="blog.html" data-i18n="nav.blog">博客</a>
+    <a href="projects.html" data-i18n="nav.projects">项目</a>
+    <a href="about.html" data-i18n="nav.about">关于</a>
+    <a href="contact.html" data-i18n="nav.contact">联系</a>
+    <a href="contact.html" data-i18n="nav.subscribe">订阅</a>
   </div>
 </div></div></nav>
 
 <header class="wrap blog-hero rv" style="overflow:visible">
   <div class="bubble" style="width:120px;height:120px;right:8%;top:-30px"></div>
   <div class="bubble" style="width:60px;height:60px;right:22%;top:30px"></div>
-  <h1 data-i18n="blog.title">Insights for modern developers</h1>
-  <p class="lede" data-i18n="blog.lede">Thoughts on engineering, systems, and building better software — written by Jevik</p>
+  <h1 data-i18n="blog.title">给现代开发者的洞察</h1>
+  <p class="lede" data-i18n="blog.lede">关于工程、系统与构建更好软件的思考——由 Jevik 撰写</p>
   <div class="filter-row" data-filter-group>
-    <button class="pill active" data-filter="all" data-i18n="blog.all">All</button>
-    <button class="pill" data-filter="webdev" data-i18n="blog.webdev">Web Dev</button>
+    <button class="pill active" data-filter="all" data-i18n="blog.all">全部</button>
+    <button class="pill" data-filter="webdev" data-i18n="blog.webdev">Web 开发</button>
     <button class="pill" data-filter="typescript">TypeScript</button>
-    <button class="pill" data-filter="systems" data-i18n="blog.systems">Systems</button>
+    <button class="pill" data-filter="systems" data-i18n="blog.systems">系统</button>
     <button class="pill" data-filter="devops">DevOps</button>
     <button class="pill" data-filter="ai">AI</button>
   </div>
@@ -52,33 +56,33 @@
 <main class="wrap">
   <article class="featured rv">
     <div class="f-txt">
-      <span class="tag" data-i18n="blog.featured">Featured Post</span>
-      <h2 data-i18n="blog.f1t">Building a Real-Time Data Pipeline with Rust and WebSockets</h2>
+      <span class="tag" data-i18n="blog.featured">精选文章</span>
+      <h2 data-i18n="blog.f1t">用 Rust 与 WebSocket 构建实时数据管道</h2>
       <div class="f-meta">📅 <span>Dec 18, 2024 · 12 min read</span></div>
-      <p data-i18n="blog.f1d">Exploring how to combine Rust's performance with WebSockets to stream data at scale, handling backpressure and low-latency delivery in production environments.</p>
-      <a class="btn btn-grad" href="article.html"><span data-i18n="blog.read">Read article</span> →</a>
+      <p data-i18n="blog.f1d">探索如何结合 Rust 的性能与 WebSocket 实现大规模数据流，处理生产环境中的背压与低延迟投递。</p>
+      <a class="btn btn-grad" href="article.html"><span data-i18n="blog.read">阅读文章</span> →</a>
     </div>
     <div class="f-img"><img src="assets/img/blog-dark.png" alt="Real-time data pipeline 3D visual"></div>
   </article>
 
   <section class="latest rv">
-    <h2 data-i18n="blog.latest">Latest Articles</h2>
+    <h2 data-i18n="blog.latest">最新文章</h2>
     <div id="blogList">
       <a class="lrow" href="article.html" data-cat="webdev">
         <span class="tag">Web Dev</span>
-        <div class="grow"><h3 data-i18n="blog.p1t">Optimizing Node.js Performance with Worker Threads</h3>
+        <div class="grow"><h3 data-i18n="blog.p1t">用 Worker Threads 优化 Node.js 性能</h3>
         <div class="d">📅 <span>Dec 12, 2024 · 8 min read</span></div></div>
         <span class="arrow-btn">→</span>
       </a>
       <a class="lrow" href="article.html" data-cat="systems">
         <span class="tag">Systems</span>
-        <div class="grow"><h3 data-i18n="blog.p2t">Understanding Kubernetes Networking for Developers</h3>
+        <div class="grow"><h3 data-i18n="blog.p2t">开发者视角的 Kubernetes 网络</h3>
         <div class="d">📅 <span>Dec 5, 2024 · 10 min read</span></div></div>
         <span class="arrow-btn">→</span>
       </a>
       <a class="lrow" href="article.html" data-cat="typescript">
         <span class="tag">TypeScript</span>
-        <div class="grow"><h3 data-i18n="blog.p3t">TypeScript Patterns for Safer APIs</h3>
+        <div class="grow"><h3 data-i18n="blog.p3t">更安全的 API 的 TypeScript 模式</h3>
         <div class="d">📅 <span>Nov 28, 2024 · 6 min read</span></div></div>
         <span class="arrow-btn">→</span>
       </a>
@@ -87,7 +91,7 @@
   <div style="height:44px"></div>
 </main>
 
-<footer class="footer-line wrap">© 2024 Jevik · <span data-i18n="blog.builtWith">Built with focus on performance &amp; clarity</span> · <a href="#">RSS</a> · <a href="#">GitHub</a> · <a href="#">LinkedIn</a> · <a href="#">Privacy</a></footer>
+<footer class="footer-line wrap">© 2024 Jevik · <span data-i18n="blog.builtWith">以性能与清晰为核心构建</span> · <a href="#">RSS</a> · <a href="#">GitHub</a> · <a href="#">LinkedIn</a> · <a href="#">Privacy</a></footer>
 <script src="assets/js/i18n.js"></script>
 <script src="assets/js/main.js"></script>
 </body>

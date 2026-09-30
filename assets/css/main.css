@@ -141,9 +141,18 @@ h1,h2,h3,.display{font-family:var(--font-d);line-height:1.12;letter-spacing:-.02
 .cube{width:40px;height:40px;flex:none}
 .burger{display:none;background:none;border:0;cursor:pointer;padding:8px}
 .burger span{display:block;width:24px;height:2.6px;background:var(--ink);border-radius:3px;margin:5px 0}
-.lang-btn{font-family:var(--font-d);font-weight:700;font-size:13.5px;padding:9px 18px;border-radius:999px;
-  border:1.5px solid #d8d3c8;background:transparent;color:var(--ink-soft);cursor:pointer;white-space:nowrap}
-.lang-btn:hover{border-color:var(--ink);color:var(--ink)}
+/* language switcher: two-segment pill, dark thumb slides between segments */
+.lang-switch{position:relative;display:inline-flex;align-items:stretch;padding:3px;user-select:none;
+  border:1.5px solid #d8d3c8;border-radius:999px;background:transparent;white-space:nowrap}
+.lang-switch .ls-slider{position:absolute;top:3px;bottom:3px;left:3px;width:calc(50% - 3px);
+  background:var(--ink);border-radius:999px;transition:transform .25s cubic-bezier(.4,0,.2,1)}
+.lang-switch.is-en .ls-slider{transform:translateX(100%)}
+.lang-switch button{position:relative;z-index:1;flex:1 1 0;min-width:40px;padding:6px 10px;
+  font-family:var(--font-d);font-weight:700;font-size:12.5px;line-height:1.2;
+  border:none;background:transparent;border-radius:999px;color:var(--ink-soft);cursor:pointer;
+  transition:color .25s ease}
+.lang-switch button:hover{color:var(--ink)}
+.lang-switch button.active,.lang-switch button.active:hover{color:var(--bg)}
 
 /* ================= HERO: home ================= */
 .hero-home{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:center;
@@ -412,7 +421,7 @@ html.js .rv.in{opacity:1;transform:none}
   .stats-bar{grid-template-columns:1fr 1fr}
   .stat:nth-child(3)::before{display:none}
   .skills-grid{grid-template-columns:repeat(2,1fr)}
-  .nav .btn,.nav .lang-btn.hide-m{display:none}
+  .nav .btn{display:none}
   .section-head h2{font-size:24px}
   .wrap{padding:0 18px}
   .mini-card{flex-direction:column}
@@ -423,7 +432,7 @@ html.js .rv.in{opacity:1;transform:none}
 /* ================= click feedback (custom, not in v2 source) ================= */
 /* press feedback: interactive elements shrink briefly while pressed.
    Kept after all :hover rules so it wins the cascade while both apply. */
-.btn:active,.pill:active,.nav-tab:active,.lang-btn:active,.icon-btn:active,.arrow-btn:active,
+.btn:active,.pill:active,.nav-tab:active,.lang-switch button:active,.icon-btn:active,.arrow-btn:active,
 .nav-links a:active,.nav-dots a:active,.mobile-menu a:active,.soc-row a:active,
 .email-pill:active,.social-icons a:active,.card-hover:active,.pn-card:active{
   transform:scale(.96);transition:transform .08s ease}

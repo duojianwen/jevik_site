@@ -2,8 +2,11 @@
 (function(){
   document.documentElement.classList.add("js");
   applyLang(currentLang());
-  document.querySelectorAll("[data-lang-toggle]").forEach(b=>{
-    b.addEventListener("click",()=>applyLang(document.documentElement.lang==="en"?"zh":"en"));
+  // language switcher: each segment switches directly to its language
+  document.querySelectorAll("[data-lang-toggle]").forEach(sw=>{
+    sw.querySelectorAll("[data-lang]").forEach(b=>{
+      b.addEventListener("click",()=>applyLang(b.getAttribute("data-lang")));
+    });
   });
 
   // mobile menu

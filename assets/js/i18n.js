@@ -70,7 +70,16 @@ en: {
 "contact.form":"Send a Message","contact.name":"Your Name","contact.namePh":"e.g. Alex Morgan","contact.emailAddr":"Email Address",
 "contact.msg":"Your Message","contact.msgPh":"Tell me about your project, goals, timeline, or any questions...",
 "contact.send":"Send Message","contact.note":"I usually reply within 24 hours. No spam, ever.","contact.privacy":"Your information is protected & confidential",
-"form.errName":"Please enter your name.","form.errEmail":"Please enter your email.","form.errEmailBad":"That email doesn't look right.","form.errMsg":"Please write a message."
+"form.errName":"Please enter your name.","form.errEmail":"Please enter your email.","form.errEmailBad":"That email doesn't look right.","form.errMsg":"Please write a message.",
+/* page <title> + meta description follow the active language too */
+"meta.homeT":"Jevik — Developer & Creative Engineer","meta.homeD":"I design and build performant, accessible web experiences — crafted with modern technologies, motion, and clarity.",
+"meta.altT":"Jevik — Developer & Creative Engineer","meta.altD":"Jevik — 50+ projects delivered, 3+ years experience, 20+ clients worldwide.",
+"meta.projectsT":"Projects — Jevik","meta.projectsD":"A curated collection of builds, experiments, and products — designed & engineered with focus on performance, usability, and clean architecture.",
+"meta.detailT":"Nebula Analytics Dashboard — Jevik","meta.detailD":"A real-time analytics platform built for scalable data insights and team collaboration.",
+"meta.blogT":"Blog — Jevik","meta.blogD":"Thoughts on engineering, systems, and building better software — written by Jevik.",
+"meta.articleT":"Optimizing Async Rust: Patterns for Zero-Cost Concurrency — dev/jevik","meta.articleD":"Patterns that keep your async Rust code fast, predictable, and free from hidden allocations.",
+"meta.aboutT":"About — Jevik","meta.aboutD":"I'm Jevik, a software developer passionate about building scalable, reliable, and thoughtful systems.",
+"meta.contactT":"Contact — Jevik","meta.contactD":"Have a project in mind or want to collaborate? Drop me a message and I'll get back to you within 24 hours."
 },
 zh: {
 "nav.about":"关于","nav.projects":"项目","nav.articles":"文章","nav.blog":"博客","nav.contact":"联系","nav.hire":"聘用我","nav.subscribe":"订阅","nav.work":"工作","nav.home":"首页",
@@ -142,7 +151,16 @@ zh: {
 "contact.form":"发送消息","contact.name":"你的名字","contact.namePh":"例如：Alex Morgan","contact.emailAddr":"邮箱地址",
 "contact.msg":"你的留言","contact.msgPh":"介绍你的项目、目标、时间线或任何问题……",
 "contact.send":"发送消息","contact.note":"我通常在 24 小时内回复。绝无垃圾邮件。","contact.privacy":"你的信息受到保护，严格保密",
-"form.errName":"请填写你的名字。","form.errEmail":"请填写邮箱。","form.errEmailBad":"邮箱格式似乎不对。","form.errMsg":"请写点留言内容。"
+"form.errName":"请填写你的名字。","form.errEmail":"请填写邮箱。","form.errEmailBad":"邮箱格式似乎不对。","form.errMsg":"请写点留言内容。",
+/* 页面 <title> 与 meta description 跟随当前语言 */
+"meta.homeT":"Jevik — 开发者与创意工程师","meta.homeD":"我设计并构建高性能、无障碍的 Web 体验——用现代技术、动效与清晰表达精心打磨。",
+"meta.altT":"Jevik — 开发者与创意工程师","meta.altD":"Jevik — 交付 50+ 项目、3+ 年经验、服务全球 20+ 客户。",
+"meta.projectsT":"项目 — Jevik","meta.projectsD":"精选的构建、实验与产品——以性能、可用性与清晰架构为核心设计与工程实现。",
+"meta.detailT":"Nebula Analytics Dashboard — Jevik","meta.detailD":"为可扩展的数据洞察与团队协作打造的实时分析平台。",
+"meta.blogT":"博客 — Jevik","meta.blogD":"关于工程、系统与构建更好软件的思考——由 Jevik 撰写。",
+"meta.articleT":"优化异步 Rust：零成本并发模式 — dev/jevik","meta.articleD":"让异步 Rust 代码快速、可预测且无隐藏分配的模式。",
+"meta.aboutT":"关于 — Jevik","meta.aboutD":"我是 Jevik，一名热衷于构建可扩展、可靠且深思熟虑的系统的软件开发者。",
+"meta.contactT":"联系 — Jevik","meta.contactD":"有项目想法或想合作？给我留言，我会在 24 小时内回复。"
 }};
 
 (function(){
@@ -159,9 +177,20 @@ zh: {
     document.querySelectorAll("[data-i18n-ph]").forEach(el=>{
       el.setAttribute("placeholder",window.__t(el.getAttribute("data-i18n-ph")));
     });
-    document.querySelectorAll("[data-lang-toggle]").forEach(b=>{b.textContent=lang==="en"?"中文":"EN";});
+    document.querySelectorAll("[data-i18n-content]").forEach(el=>{
+      el.setAttribute("content",window.__t(el.getAttribute("data-i18n-content")));
+    });
+    // two-segment switcher: mark the active segment + move the slider thumb
+    document.querySelectorAll("[data-lang-toggle]").forEach(sw=>{
+      sw.classList.toggle("is-en",lang==="en");
+      sw.querySelectorAll("[data-lang]").forEach(b=>{
+        const on=b.getAttribute("data-lang")===lang;
+        b.classList.toggle("active",on);
+        b.setAttribute("aria-pressed",on?"true":"false");
+      });
+    });
   };
   window.currentLang=function(){
-    try{return localStorage.getItem(KEY)||"en";}catch(e){return "en";}
+    try{return localStorage.getItem(KEY)||"zh";}catch(e){return "zh";}
   };
 })();

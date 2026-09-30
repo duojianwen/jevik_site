@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23ff8a3d'/%3E%3Cstop offset='1' stop-color='%233f8cff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Ctext x='32' y='44' font-family='sans-serif' font-weight='800' font-size='36' fill='white' text-anchor='middle'%3EJ%3C/text%3E%3C/svg%3E">
-<title>Optimizing Async Rust: Patterns for Zero-Cost Concurrency — dev/jevik</title>
-<meta name="description" content="Patterns that keep your async Rust code fast, predictable, and free from hidden allocations.">
+<title data-i18n="meta.articleT">优化异步 Rust：零成本并发模式 — dev/jevik</title>
+<meta name="description" content="让异步 Rust 代码快速、可预测且无隐藏分配的模式。" data-i18n-content="meta.articleD">
 <link rel="stylesheet" href="assets/fonts/fonts.css">
 <link rel="stylesheet" href="assets/css/main.css">
 </head>
@@ -15,34 +15,38 @@
     <svg class="cube" viewBox="0 0 48 48" style="width:34px;height:34px"><polygon points="24,4 42,14 24,24 6,14" fill="#ff9a4d"/><polygon points="6,14 24,24 24,44 6,34" fill="#3f8cff"/><polygon points="42,14 24,24 24,44 42,34" fill="#dfe6f5"/></svg>
     dev/jevik</a>
   <div class="nav-dots" style="display:flex">
-    <a href="blog.html" data-i18n="nav.articles">Articles</a><span class="dot">·</span>
-    <a href="blog.html" data-i18n="article.guides">Guides</a><span class="dot">·</span>
-    <a href="projects.html" data-i18n="nav.projects">Projects</a><span class="dot">·</span>
-    <a href="about.html" data-i18n="nav.about">About</a>
+    <a href="blog.html" data-i18n="nav.articles">文章</a><span class="dot">·</span>
+    <a href="blog.html" data-i18n="article.guides">指南</a><span class="dot">·</span>
+    <a href="projects.html" data-i18n="nav.projects">项目</a><span class="dot">·</span>
+    <a href="about.html" data-i18n="nav.about">关于</a>
   </div>
   <div style="display:flex;gap:10px;align-items:center">
-    <button class="lang-btn" data-lang-toggle>中文</button>
+    <div class="lang-switch" data-lang-toggle>
+      <span class="ls-slider" aria-hidden="true"></span>
+      <button type="button" data-lang="zh" class="active" aria-pressed="true">中</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
     <button class="icon-btn hide-m" aria-label="Search">🔍</button>
     <button class="icon-btn hide-m" aria-label="Notifications">🔔</button>
-    <a class="btn btn-grad hide-m" href="contact.html" data-i18n="nav.subscribe" style="padding:12px 28px">Subscribe</a>
+    <a class="btn btn-grad hide-m" href="contact.html" data-i18n="nav.subscribe" style="padding:12px 28px">订阅</a>
     <button class="burger" data-burger aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
   <div class="mobile-menu">
-    <a href="blog.html" data-i18n="nav.articles">Articles</a>
-    <a href="blog.html" data-i18n="article.guides">Guides</a>
-    <a href="projects.html" data-i18n="nav.projects">Projects</a>
-    <a href="about.html" data-i18n="nav.about">About</a>
-    <a href="contact.html" data-i18n="nav.subscribe">Subscribe</a>
+    <a href="blog.html" data-i18n="nav.articles">文章</a>
+    <a href="blog.html" data-i18n="article.guides">指南</a>
+    <a href="projects.html" data-i18n="nav.projects">项目</a>
+    <a href="about.html" data-i18n="nav.about">关于</a>
+    <a href="contact.html" data-i18n="nav.subscribe">订阅</a>
   </div>
 </div></div></nav>
 
 <div class="wrap"><div class="chrome-bar rv"></div></div>
 
 <header class="article-head rv">
-  <h1 data-i18n="article.title">Optimizing Async Rust: Patterns for Zero-Cost Concurrency</h1>
+  <h1 data-i18n="article.title">优化异步 Rust：零成本并发模式</h1>
   <div class="byline">
     <span class="avatar">J</span>
-    <b>Jevik</b><span class="sep">·</span><span data-i18n="article.role">Developer</span><span class="sep">·</span>
+    <b>Jevik</b><span class="sep">·</span><span data-i18n="article.role">开发者</span><span class="sep">·</span>
     <span>Oct 12, 2024</span><span class="sep">·</span><span>🕐 8 min read</span>
   </div>
 </header>
@@ -50,9 +54,9 @@
 <div class="wrap"><div class="chrome-bar rv"></div></div>
 
 <main class="article-body rv">
-  <p data-i18n="article.p1">Async Rust has matured into a powerful tool for building high-performance systems, but writing concurrent code that is both efficient and maintainable still requires careful design. In this post, we'll explore patterns that keep your async code fast, predictable, and free from hidden allocations.</p>
-  <div class="pullquote"><p data-i18n="article.quote">Performance isn't free. It's earned through thoughtful concurrency and thoughtful memory layout.</p></div>
-  <p data-i18n="article.p2">The key is to avoid heap allocations in hot paths and to leverage Rust's zero-cost abstractions. By combining small executors with scoped tasks, you can retain full control while keeping overhead minimal.</p>
+  <p data-i18n="article.p1">异步 Rust 已成熟为构建高性能系统的利器，但编写既高效又可维护的并发代码仍需精心设计。本文将探讨让异步代码快速、可预测且无隐藏分配的模式。</p>
+  <div class="pullquote"><p data-i18n="article.quote">性能不是免费的。它来自深思熟虑的并发与内存布局。</p></div>
+  <p data-i18n="article.p2">关键是避免热路径上的堆分配，并利用 Rust 的零成本抽象。通过小执行器与 scoped 任务的组合，你可以在保持开销最小的同时完全掌控。</p>
   <div class="codeblock">
     <div class="chead"><span class="dots"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></span><span style="margin-left:6px">main.rs</span><span style="margin-left:auto">📋</span></div>
 <pre><code><span class="kw">async fn</span> <span class="fn">process_items</span>(items: <span class="ty">Vec</span>&lt;Item&gt;) -&gt; <span class="ty">Result</span>&lt;(), Error&gt; {
@@ -63,25 +67,25 @@
     <span class="fn">Ok</span>(())
 }</code></pre>
   </div>
-  <p data-i18n="article.p3">This pattern reduces contention by bounding concurrency to a fixed window while keeping the code readable and composable. We'll break down each piece and measure the performance impact in the next section.</p>
+  <p data-i18n="article.p3">该模式将并发限制在固定窗口内减少竞争，同时保持代码可读与可组合。下一节我们将拆解每个部分并测量性能影响。</p>
 </main>
 
 <div class="wrap"><div class="chrome-bar rv"></div></div>
 
 <div class="prevnext">
   <a class="pn-card card-hover rv" href="article.html">
-    <div class="k">← <span data-i18n="article.prev">Previous</span></div>
-    <h3 data-i18n="article.prevT">Structuring Large-Scale TypeScript Projects</h3>
-    <p data-i18n="article.prevD">Learn how to organize complex TS codebases with modular patterns and strict typing.</p>
+    <div class="k">← <span data-i18n="article.prev">上一篇</span></div>
+    <h3 data-i18n="article.prevT">组织大型 TypeScript 项目</h3>
+    <p data-i18n="article.prevD">学习用模块化模式与严格类型组织复杂 TS 代码库。</p>
   </a>
   <a class="pn-card card-hover rv" href="article.html">
-    <div class="k"><span data-i18n="article.next">Next Article</span> →</div>
-    <h3 data-i18n="article.nextT">WASM vs Native: When to Offload to the Browser</h3>
-    <p data-i18n="article.nextD">A practical guide to deciding when WebAssembly is the right tool for the job.</p>
+    <div class="k"><span data-i18n="article.next">下一篇</span> →</div>
+    <h3 data-i18n="article.nextT">WASM vs 原生：何时搬到浏览器</h3>
+    <p data-i18n="article.nextD">判断 WebAssembly 是否合适的实用指南。</p>
   </a>
 </div>
 
-<footer class="footer-line wrap" style="margin-top:40px">© 2024 Jevik · <span data-i18n="article.builtWith">Built with Rust + Next.js</span> · <span data-i18n="article.rights">All rights reserved</span></footer>
+<footer class="footer-line wrap" style="margin-top:40px">© 2024 Jevik · <span data-i18n="article.builtWith">基于 Rust + Next.js 构建</span> · <span data-i18n="article.rights">版权所有</span></footer>
 <script src="assets/js/i18n.js"></script>
 <script src="assets/js/main.js"></script>
 </body>

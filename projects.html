@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23ff8a3d'/%3E%3Cstop offset='1' stop-color='%233f8cff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Ctext x='32' y='44' font-family='sans-serif' font-weight='800' font-size='36' fill='white' text-anchor='middle'%3EJ%3C/text%3E%3C/svg%3E">
-<title>Projects — Jevik</title>
-<meta name="description" content="A curated collection of builds, experiments, and products — designed & engineered with focus on performance, usability, and clean architecture.">
+<title data-i18n="meta.projectsT">项目 — Jevik</title>
+<meta name="description" content="精选的构建、实验与产品——以性能、可用性与清晰架构为核心设计与工程实现。" data-i18n-content="meta.projectsD">
 <link rel="stylesheet" href="assets/fonts/fonts.css">
 <link rel="stylesheet" href="assets/css/main.css">
 </head>
@@ -13,35 +13,39 @@
 <nav class="nav nav-tabs"><div class="wrap"><div class="nav-inner">
   <a class="nav-logo" href="index.html">
     <svg class="cube" viewBox="0 0 48 48"><defs><linearGradient id="cb1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffd9b8"/><stop offset="1" stop-color="#ff8a3d"/></linearGradient><linearGradient id="cb2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9db8f0"/><stop offset="1" stop-color="#3f8cff"/></linearGradient><linearGradient id="cb3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e8edf7"/><stop offset="1" stop-color="#a9b4d2"/></linearGradient></defs><polygon points="24,4 42,14 24,24 6,14" fill="url(#cb1)"/><polygon points="6,14 24,24 24,44 6,34" fill="url(#cb2)"/><polygon points="42,14 24,24 24,44 42,34" fill="url(#cb3)"/></svg>
-    Jevik <span class="nav-sub" data-i18n="projects.sub">Jevik · Full-Stack Developer</span></a>
+    Jevik <span class="nav-sub" data-i18n="projects.sub">Jevik · 全栈开发者</span></a>
   <div class="nav-links">
-    <a class="nav-tab" href="about.html" data-i18n="nav.about">About</a>
-    <a class="nav-tab on" href="projects.html" data-i18n="nav.projects">Projects</a>
-    <a class="nav-tab" href="contact.html" data-i18n="nav.contact">Contact</a>
+    <a class="nav-tab" href="about.html" data-i18n="nav.about">关于</a>
+    <a class="nav-tab on" href="projects.html" data-i18n="nav.projects">项目</a>
+    <a class="nav-tab" href="contact.html" data-i18n="nav.contact">联系</a>
   </div>
   <div style="display:flex;gap:10px;align-items:center">
-    <button class="lang-btn" data-lang-toggle>中文</button>
+    <div class="lang-switch" data-lang-toggle>
+      <span class="ls-slider" aria-hidden="true"></span>
+      <button type="button" data-lang="zh" class="active" aria-pressed="true">中</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
     <button class="burger" data-burger aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
   <div class="mobile-menu">
-    <a href="about.html" data-i18n="nav.about">About</a>
-    <a href="projects.html" data-i18n="nav.projects">Projects</a>
-    <a href="contact.html" data-i18n="nav.contact">Contact</a>
+    <a href="about.html" data-i18n="nav.about">关于</a>
+    <a href="projects.html" data-i18n="nav.projects">项目</a>
+    <a href="contact.html" data-i18n="nav.contact">联系</a>
   </div>
 </div></div></nav>
 
 <header class="wrap page-hero rv" style="overflow:visible">
   <div class="bubble" style="width:90px;height:90px;right:16%;top:-10px"></div>
   <div class="bubble" style="width:52px;height:52px;right:6%;top:40px"></div>
-  <h1 class="giant" data-i18n="projects.title">Projects</h1>
-  <p class="lede" data-i18n="projects.lede">A curated collection of builds, experiments, and products — designed &amp; engineered with focus on performance, usability, and clean architecture.</p>
+  <h1 class="giant" data-i18n="projects.title">项目</h1>
+  <p class="lede" data-i18n="projects.lede">精选的构建、实验与产品——以性能、可用性与清晰架构为核心设计与工程实现。</p>
   <div class="filter-row" data-filter-group>
     <span class="flabel">FILTER:</span>
-    <button class="pill active" data-filter="all" data-i18n="projects.all">All</button>
+    <button class="pill active" data-filter="all" data-i18n="projects.all">全部</button>
     <button class="pill" data-filter="web" data-i18n="projects.web">Web</button>
-    <button class="pill" data-filter="mobile" data-i18n="projects.mobile">Mobile</button>
+    <button class="pill" data-filter="mobile" data-i18n="projects.mobile">移动</button>
     <button class="pill" data-filter="ai" data-i18n="projects.ai">AI</button>
-    <button class="pill" data-filter="design" data-i18n="projects.design">Design</button>
+    <button class="pill" data-filter="design" data-i18n="projects.design">设计</button>
   </div>
 </header>
 
@@ -50,43 +54,43 @@
     <a class="proj-card card-hover rv" href="project-detail.html" data-cat="ai web">
       <div class="pimg"><svg viewBox="0 0 150 130"><defs><linearGradient id="nf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3f8cff"/><stop offset="1" stop-color="#ff8a3d"/></linearGradient></defs><rect x="15" y="15" width="120" height="100" rx="18" fill="url(#nf)" opacity=".9"/><g stroke="#fff" stroke-width="1.6" opacity=".85"><line x1="45" y1="45" x2="75" y2="65"/><line x1="45" y1="85" x2="75" y2="65"/><line x1="105" y1="45" x2="75" y2="65"/><line x1="105" y1="85" x2="75" y2="65"/><line x1="45" y1="45" x2="45" y2="85"/><line x1="105" y1="45" x2="105" y2="85"/></g><g fill="#fff"><circle cx="45" cy="45" r="7"/><circle cx="45" cy="85" r="7"/><circle cx="75" cy="65" r="9" fill="#ff8a3d"/><circle cx="105" cy="45" r="7"/><circle cx="105" cy="85" r="7"/></g></svg></div>
       <h3>NeuralFlow</h3>
-      <p data-i18n="projects.d1">Real-time data visualization platform for ML pipelines with interactive graphs.</p>
+      <p data-i18n="projects.d1">面向 ML 流水线的实时数据可视化平台，交互式图表。</p>
       <div><span class="tech t-blue">React</span><span class="tech t-orange">Python</span><span class="tech t-gray">WebSocket</span></div>
     </a>
     <a class="proj-card card-hover rv" href="project-detail.html" data-cat="design">
       <div class="pimg"><svg viewBox="0 0 150 130"><g opacity=".95"><polygon points="75,18 128,42 75,66 22,42" fill="#c9d3e8"/><polygon points="22,58 75,82 128,58 128,48 75,72 22,48" fill="#9db0d8"/><polygon points="22,78 75,102 128,78 128,68 75,92 22,68" fill="#ff9a4d"/><polygon points="22,98 75,122 128,98 128,88 75,112 22,88" fill="#3f8cff" opacity=".85"/></g><ellipse cx="75" cy="122" rx="46" ry="7" fill="#3c4763" opacity=".18"/></svg></div>
       <h3>Orbit UI Kit</h3>
-      <p data-i18n="projects.d2">Modern open-source design system with accessible components and design tokens.</p>
+      <p data-i18n="projects.d2">现代开源设计系统，无障碍组件与设计令牌。</p>
       <div><span class="tech t-gray">Design System</span><span class="tech t-purple">Figma</span><span class="tech t-blue">Tailwind</span></div>
     </a>
     <a class="proj-card card-hover rv" href="project-detail.html" data-cat="web">
       <div class="pimg"><svg viewBox="0 0 150 130"><defs><linearGradient id="pc1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffd9b8"/><stop offset="1" stop-color="#ff8a3d"/></linearGradient><linearGradient id="pc2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#bcd0f7"/><stop offset="1" stop-color="#3f8cff"/></linearGradient></defs><polygon points="75,15 120,40 75,65 30,40" fill="url(#pc1)" opacity=".92"/><polygon points="30,40 75,65 75,115 30,90" fill="url(#pc2)" opacity=".85"/><polygon points="120,40 75,65 75,115 120,90" fill="#dfe6f5" opacity=".9"/><polygon points="75,15 120,40 75,65 30,40" fill="#fff" opacity=".25"/></svg></div>
       <h3>Prism API</h3>
-      <p data-i18n="projects.d3">RESTful API gateway featuring authentication, rate-limiting, and analytics.</p>
+      <p data-i18n="projects.d3">RESTful API 网关，含认证、限流与分析。</p>
       <div><span class="tech t-green">Node.js</span><span class="tech t-blue">PostgreSQL</span><span class="tech t-gray">Docker</span></div>
     </a>
     <a class="proj-card card-hover rv" href="project-detail.html" data-cat="web">
       <div class="pimg"><svg viewBox="0 0 150 130"><rect x="20" y="25" width="110" height="80" rx="10" fill="#1d2440"/><rect x="28" y="33" width="46" height="30" rx="5" fill="#2a3352"/><rect x="28" y="68" width="94" height="28" rx="5" fill="#2a3352"/><g><rect x="34" y="80" width="8" height="12" rx="2" fill="#ff9a4d"/><rect x="46" y="74" width="8" height="18" rx="2" fill="#3f8cff"/><rect x="58" y="70" width="8" height="22" rx="2" fill="#ff9a4d"/><rect x="70" y="76" width="8" height="16" rx="2" fill="#3f8cff"/></g><circle cx="104" cy="48" r="11" fill="none" stroke="#ff9a4d" stroke-width="6" stroke-dasharray="46 24"/></svg></div>
       <h3>Kinetic Dashboard</h3>
-      <p data-i18n="projects.d4">Analytics dashboard for SaaS metrics with live updates and KPI tracking.</p>
+      <p data-i18n="projects.d4">SaaS 指标分析仪表盘，实时更新与 KPI 追踪。</p>
       <div><span class="tech t-dark">Next.js</span><span class="tech t-orange">Chart.js</span><span class="tech t-green">Supabase</span></div>
     </a>
     <a class="proj-card card-hover rv" href="project-detail.html" data-cat="mobile">
       <div class="pimg"><svg viewBox="0 0 150 130"><rect x="25" y="30" width="70" height="44" rx="14" fill="#e3edff"/><rect x="25" y="42" width="70" height="44" rx="14" fill="url(#nf)" opacity="0"/><rect x="55" y="66" width="70" height="40" rx="14" fill="#ff9a4d"/><rect x="62" y="74" width="44" height="7" rx="3.5" fill="#fff" opacity=".8"/><rect x="62" y="86" width="30" height="7" rx="3.5" fill="#fff" opacity=".55"/><rect x="32" y="38" width="44" height="7" rx="3.5" fill="#3f8cff" opacity=".7"/><rect x="32" y="50" width="30" height="7" rx="3.5" fill="#3f8cff" opacity=".45"/></svg></div>
       <h3>Lumen Chat</h3>
-      <p data-i18n="projects.d5">Real-time chat application with end-to-end encryption and threaded conversations.</p>
+      <p data-i18n="projects.d5">实时聊天应用，端到端加密与话题分支。</p>
       <div><span class="tech t-blue">TypeScript</span><span class="tech t-gray">Socket.io</span><span class="tech t-red">Redis</span></div>
     </a>
     <a class="proj-card card-hover rv" href="project-detail.html" data-cat="ai">
       <div class="pimg"><svg viewBox="0 0 150 130"><g transform="translate(75,65)"><circle r="34" fill="none" stroke="#8b96b5" stroke-width="14"/><circle r="34" fill="none" stroke="url(#nf)" stroke-width="14" stroke-dasharray="26 12" opacity=".9"/><circle r="12" fill="#2a3352"/><g fill="#8b96b5"><rect x="-5" y="-48" width="10" height="16" rx="3"/><rect x="-5" y="32" width="10" height="16" rx="3"/><rect x="-48" y="-5" width="16" height="10" rx="3"/><rect x="32" y="-5" width="16" height="10" rx="3"/></g></g></svg></div>
       <h3>Forge Build</h3>
-      <p data-i18n="projects.d6">CLI tool for bundling, optimizing, and deploying modern web applications.</p>
+      <p data-i18n="projects.d6">现代 Web 应用的打包、优化与部署 CLI 工具。</p>
       <div><span class="tech t-orange">Rust</span><span class="tech t-gray">CLI</span><span class="tech t-blue">CI/CD</span></div>
     </a>
   </div>
 </main>
 
-<footer class="footer-line wrap">© 2025 Jevik · <span data-i18n="projects.count">12 Projects</span> · <span data-i18n="projects.crafted">Crafted with precision</span> · <span data-i18n="projects.builtWith">Built with modern web technologies</span></footer>
+<footer class="footer-line wrap">© 2025 Jevik · <span data-i18n="projects.count">12 个项目</span> · <span data-i18n="projects.crafted">精心打磨</span> · <span data-i18n="projects.builtWith">基于现代 Web 技术构建</span></footer>
 <script src="assets/js/i18n.js"></script>
 <script src="assets/js/main.js"></script>
 </body>
