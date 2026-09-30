@@ -88,7 +88,7 @@ h1,h2,h3,.display{font-family:var(--font-d);line-height:1.12;letter-spacing:-.02
   transform:rotate(-12deg)}
 
 /* ================= NAV VARIANTS ================= */
-.nav{position:sticky;top:14px;z-index:50;margin:14px auto 0;max-width:1220px}
+.nav{position:static;margin:14px auto 0;max-width:1220px}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;
   padding:12px 22px;border-radius:18px}
 .nav-logo{font-family:var(--font-d);font-weight:800;font-size:26px;display:flex;align-items:center;gap:10px}
@@ -419,3 +419,17 @@ html.js .rv.in{opacity:1;transform:none}
   .mini-card .thumb{width:100%}
   .mini-card .thumb img{height:150px}
 }
+
+/* ================= click feedback (custom, not in v2 source) ================= */
+/* press feedback: interactive elements shrink briefly while pressed.
+   Kept after all :hover rules so it wins the cascade while both apply. */
+.btn:active,.pill:active,.nav-tab:active,.lang-btn:active,.icon-btn:active,.arrow-btn:active,
+.nav-links a:active,.nav-dots a:active,.mobile-menu a:active,.soc-row a:active,
+.email-pill:active,.social-icons a:active,.card-hover:active,.pn-card:active{
+  transform:scale(.96);transition:transform .08s ease}
+/* ripple host: primary buttons clip the wave; safe because .btn is a pill
+   with no overflowing children */
+.btn{position:relative;overflow:hidden}
+/* ripple wave element is spawned by main.js on pointerdown */
+.ripple{position:absolute;border-radius:50%;pointer-events:none;
+  transform:scale(0);opacity:.9;transition:transform .55s ease-out,opacity .55s ease-out}
