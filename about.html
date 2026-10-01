@@ -1,26 +1,34 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23ff8a3d'/%3E%3Cstop offset='1' stop-color='%233f8cff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Ctext x='32' y='44' font-family='sans-serif' font-weight='800' font-size='36' fill='white' text-anchor='middle'%3EJ%3C/text%3E%3C/svg%3E">
-<title data-i18n="meta.aboutT">关于 — Jevik</title>
+<title data-i18n="meta.aboutT">关于 — 杰维克 Jevik</title>
 <meta name="description" content="我是 Jevik，一名热衷于构建可扩展、可靠且深思熟虑的系统的软件开发者。" data-i18n-content="meta.aboutD">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="杰维克 Jevik">
+<meta property="og:title" content="关于 — 杰维克 Jevik" data-i18n-content="meta.aboutT">
+<meta property="og:description" content="我是 Jevik，一名热衷于构建可扩展、可靠且深思熟虑的系统的软件开发者。" data-i18n-content="meta.aboutD">
+<meta property="og:url" content="__SITE_URL__/about">
+<meta property="og:image" content="__SITE_URL__/assets/img/hero-3d.png">
+<meta name="twitter:card" content="summary_large_image">
+
 <link rel="stylesheet" href="assets/fonts/fonts.css">
 <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
 <nav class="nav nav-chrome"><div class="wrap"><div class="nav-inner">
-  <a href="index.html" class="logo-3d">JEVIK</a>
+  <a class="nav-logo" href="index.html" aria-label="杰维克 Jevik — Home"><svg class="cube" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><defs><linearGradient id="cb1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffd9b8"/><stop offset="1" stop-color="#ff8a3d"/></linearGradient><linearGradient id="cb2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9db8f0"/><stop offset="1" stop-color="#3f8cff"/></linearGradient><linearGradient id="cb3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e8edf7"/><stop offset="1" stop-color="#a9b4d2"/></linearGradient></defs><polygon points="24,4 42,14 24,24 6,14" fill="url(#cb1)"/><polygon points="6,14 24,24 24,44 6,34" fill="url(#cb2)"/><polygon points="42,14 24,24 24,44 42,34" fill="url(#cb3)"/></svg><span class="brand-zh">杰维克</span><span class="brand-en">Jevik</span></a>
   <div class="nav-links">
     <a href="index.html" data-i18n="nav.home">首页</a>
-    <a href="about.html" class="pill active" style="text-transform:uppercase" data-i18n="nav.about">关于</a>
+    <a href="about.html" class="pill" style="text-transform:uppercase" data-i18n="nav.about">关于</a>
     <a href="projects.html" data-i18n="nav.projects">项目</a>
     <a href="home-alt.html" data-i18n="nav.work">工作</a>
     <a href="contact.html" data-i18n="nav.contact">联系</a>
   </div>
   <div style="display:flex;gap:10px;align-items:center">
-    <div class="lang-switch" data-lang-toggle>
+    <div class="lang-switch ls-top" data-lang-toggle>
       <span class="ls-slider" aria-hidden="true"></span>
       <button type="button" data-lang="zh" class="active" aria-pressed="true">中</button>
       <button type="button" data-lang="en" aria-pressed="false">EN</button>
@@ -29,6 +37,11 @@
     <button class="burger" data-burger aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
   <div class="mobile-menu">
+    <div class="lang-switch" data-lang-toggle>
+      <span class="ls-slider" aria-hidden="true"></span>
+      <button type="button" data-lang="zh" class="active" aria-pressed="true">中</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
     <a href="index.html" data-i18n="nav.home">首页</a>
     <a href="about.html" data-i18n="nav.about">关于</a>
     <a href="projects.html" data-i18n="nav.projects">项目</a>
@@ -37,15 +50,22 @@
   </div>
 </div></div></nav>
 
+<header class="wrap page-hero rv">
+  <div class="bubble" style="width:90px;height:90px;right:16%;top:-10px"></div>
+  <div class="bubble" style="width:52px;height:52px;right:6%;top:40px"></div>
+  <h1 class="chrome-text" data-i18n="about.title">关于</h1>
+  <p class="lede" data-i18n="meta.aboutD">我是杰维克，一名热衷于构建可扩展、可靠且深思熟虑的系统的软件开发者。</p>
+  <a class="btn btn-chrome" href="contact.html" data-i18n="nav.hire">聘用我</a>
+</header>
+
 <main class="wrap about-grid">
   <div class="about-left rv">
     <div class="photo-frame">
       <div class="ph"><span class="init">J</span></div>
     </div>
-    <div class="who chrome-silver">JEVIK</div>
+    <div class="who chrome-silver">杰维克</div><div class="who-en">Jevik</div>
     <div class="roles" data-i18n="about.roles">开发者 — 构建者 — 开源</div>
-    <h2 class="sec chrome-h" data-i18n="about.title">关于</h2>
-    <p class="bio" data-i18n="about.bio">我是 Jevik，一名热衷于构建可扩展、可靠且深思熟虑的系统的软件开发者。我专注于创造干净、可维护的解决方案，解决真实问题——从云基础设施到开发者工具。如今我从事开源工具、云原生应用与后端系统，始终追求优雅的代码与用心的设计。现居美国俄勒冈州波特兰。</p>
+    <p class="bio" data-i18n="about.bio">我是杰维克，一名热衷于构建可扩展、可靠且深思熟虑的系统的软件开发者。我专注于创造干净、可维护的解决方案，解决真实问题——从云基础设施到开发者工具。如今我从事开源工具、云原生应用与后端系统，始终追求优雅的代码与用心的设计。</p>
   </div>
 
   <div class="rv">
@@ -79,7 +99,7 @@
   </div>
 </main>
 
-<footer class="about-foot wrap rv"><span data-i18n="about.foot">接受自由职业与协作</span> — jevik.dev — hello@jevik.dev</footer>
+<footer class="about-foot wrap rv">© 2026 杰维克 Jevik · <span data-i18n="about.foot">接受自由职业与协作</span> — jevik.dev — duojianwen@gmail.com</footer>
 <script src="assets/js/i18n.js"></script>
 <script src="assets/js/main.js"></script>
 </body>

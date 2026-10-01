@@ -1,24 +1,32 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23ff8a3d'/%3E%3Cstop offset='1' stop-color='%233f8cff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Ctext x='32' y='44' font-family='sans-serif' font-weight='800' font-size='36' fill='white' text-anchor='middle'%3EJ%3C/text%3E%3C/svg%3E">
-<title data-i18n="meta.contactT">联系 — Jevik</title>
+<title data-i18n="meta.contactT">联系 — 杰维克 Jevik</title>
 <meta name="description" content="有项目想法或想合作？给我留言，我会在 24 小时内回复。" data-i18n-content="meta.contactD">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="杰维克 Jevik">
+<meta property="og:title" content="联系 — 杰维克 Jevik" data-i18n-content="meta.contactT">
+<meta property="og:description" content="有项目想法或想合作？给我留言，我会在 24 小时内回复。" data-i18n-content="meta.contactD">
+<meta property="og:url" content="__SITE_URL__/contact">
+<meta property="og:image" content="__SITE_URL__/assets/img/hero-3d.png">
+<meta name="twitter:card" content="summary_large_image">
+
 <link rel="stylesheet" href="assets/fonts/fonts.css">
 <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
 <nav class="nav nav-tabs"><div class="wrap"><div class="nav-inner">
-  <a class="nav-logo" href="index.html"><span class="logo-3d" style="font-size:30px">Jevik</span> <span class="nav-sub">developer · Jevik</span></a>
+  <a class="nav-logo" href="index.html" aria-label="杰维克 Jevik — Home"><svg class="cube" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><defs><linearGradient id="cb1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffd9b8"/><stop offset="1" stop-color="#ff8a3d"/></linearGradient><linearGradient id="cb2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9db8f0"/><stop offset="1" stop-color="#3f8cff"/></linearGradient><linearGradient id="cb3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e8edf7"/><stop offset="1" stop-color="#a9b4d2"/></linearGradient></defs><polygon points="24,4 42,14 24,24 6,14" fill="url(#cb1)"/><polygon points="6,14 24,24 24,44 6,34" fill="url(#cb2)"/><polygon points="42,14 24,24 24,44 42,34" fill="url(#cb3)"/></svg><span class="brand-zh">杰维克</span><span class="brand-en">Jevik</span></a>
   <div class="nav-links">
     <a class="nav-tab" href="home-alt.html" data-i18n="nav.work">工作</a>
     <a class="nav-tab" href="about.html" data-i18n="nav.about">关于</a>
-    <a class="nav-tab on" href="contact.html" data-i18n="nav.contact">联系</a>
+    <a class="nav-tab" href="contact.html" data-i18n="nav.contact">联系</a>
   </div>
   <div style="display:flex;gap:10px;align-items:center">
-    <div class="lang-switch" data-lang-toggle>
+    <div class="lang-switch ls-top" data-lang-toggle>
       <span class="ls-slider" aria-hidden="true"></span>
       <button type="button" data-lang="zh" class="active" aria-pressed="true">中</button>
       <button type="button" data-lang="en" aria-pressed="false">EN</button>
@@ -26,31 +34,38 @@
     <button class="burger" data-burger aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
   <div class="mobile-menu">
+    <div class="lang-switch" data-lang-toggle>
+      <span class="ls-slider" aria-hidden="true"></span>
+      <button type="button" data-lang="zh" class="active" aria-pressed="true">中</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
     <a href="home-alt.html" data-i18n="nav.work">工作</a>
     <a href="about.html" data-i18n="nav.about">关于</a>
     <a href="contact.html" data-i18n="nav.contact">联系</a>
   </div>
 </div></div></nav>
 
-<header class="wrap rv" style="text-align:center;padding:56px 28px 6px;position:relative;overflow:visible">
+<header class="wrap page-hero rv" style="overflow:visible">
   <div class="bubble" style="width:110px;height:110px;left:0%;top:0%"></div>
   <div class="bubble" style="width:150px;height:150px;right:0%;top:-30px"></div>
   <div class="bubble" style="width:70px;height:70px;left:5%;bottom:-46px"></div>
   <div class="bubble" style="width:90px;height:90px;right:6%;bottom:-56px"></div>
   <div class="glass-cube"></div>
-  <h1 class="chrome-text nw-d" style="font-size:min(3.6vw,60px);font-weight:800;position:relative;z-index:2" data-i18n="contact.title">一起构建伟大的作品</h1>
-  <p style="color:var(--ink-soft);font-size:16.5px;margin-top:12px" data-i18n="contact.lede">有项目想法或想合作？给我留言，我会在 24 小时内回复。</p>
+  <h1 class="chrome-text" data-i18n="contact.title">一起构建伟大的作品</h1>
+  <p class="lede" data-i18n="contact.lede">有项目想法或想合作？给我留言，我会在 24 小时内回复。</p>
 </header>
 
 <main class="wrap contact-grid">
   <section class="info-card rv">
     <h2 data-i18n="contact.info">联系信息</h2>
-    <div class="info-row"><div class="info-ic">✉️</div><div><div class="k" data-i18n="contact.email">邮箱</div><div class="v">hello@jevik.dev</div></div></div>
-    <div class="info-row"><div class="info-ic">📍</div><div><div class="k" data-i18n="contact.location">地点</div><div class="v" data-i18n="contact.locV">爱沙尼亚塔林 — UTC+2</div></div></div>
+    <div class="info-row"><div class="info-ic">✉️</div><div><div class="k" data-i18n="contact.email">邮箱</div><div class="v">duojianwen@gmail.com</div></div></div>
     <h2 style="font-size:24px;margin:26px 0 18px" data-i18n="contact.socials">社交链接</h2>
-    <div class="soc-row"><span class="ic">⌘</span><a href="https://github.com/jevik">github.com/jevik</a></div>
-    <div class="soc-row"><span class="ic" style="font-size:18px">in</span><a href="https://linkedin.com/in/jevik">linkedin.com/in/jevik</a></div>
-    <div class="soc-row"><span class="ic">𝕏</span><a href="https://x.com/jevikdev">x.com/jevikdev</a></div>
+    <div class="social-grid" aria-label="Social links">
+      <a class="social-card" href="#" data-social-placeholder="github"><span class="social-mark">GH</span><span><b>GitHub</b><small>待填写主页链接</small></span></a>
+      <a class="social-card" href="#" data-social-placeholder="x"><span class="social-mark">𝕏</span><span><b>X</b><small>待填写主页链接</small></span></a>
+      <button class="social-card qr-card" type="button" disabled><span class="qr-placeholder">WE</span><span><b>微信</b><small>待替换二维码图片</small></span></button>
+      <button class="social-card qr-card" type="button" disabled><span class="qr-placeholder">QQ</span><span><b>QQ</b><small>待替换二维码图片</small></span></button>
+    </div>
     <div class="avail">
       <div class="k"><span class="dot"></span><span data-i18n="contact.availK">可接单状态</span></div>
       <div class="v" data-i18n="contact.availV">接受自由职业</div>
@@ -77,7 +92,7 @@
   </section>
 </main>
 
-<footer class="footer-line wrap">© 2024 Jevik · <span data-i18n="home.builtWith">基于 Next.js 与 Tailwind 构建</span> · <a href="#">Privacy</a> · <a href="#">Credits</a></footer>
+<footer class="footer-line wrap">© 2026 杰维克 Jevik · <span data-i18n="home.builtWith">基于 Next.js 与 Tailwind 构建</span> · <a href="#">Privacy</a> · <a href="#">Credits</a></footer>
 <script src="assets/js/i18n.js"></script>
 <script src="assets/js/main.js"></script>
 </body>

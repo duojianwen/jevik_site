@@ -7,7 +7,7 @@
 **Why**：朵教主看中一套个人网站参考模板，要求像素级完整复刻并部署到 Cloudflare，作为长期维护的个人站点。
 
 **已确认决策**：
-1. **像素级完全复刻**——含原作者文案一并照搬作基准（Jevik，hello@jevik.dev），后续再替换个人信息
+1. **像素级完全复刻**——含原作者文案一并照搬作基准（Jevik，duojianwen@gmail.com），后续再替换个人信息
 2. **站点代码放仓库根目录** `E:\Codex\Project\Jevik_Site\`
 3. **平台：Cloudflare Workers 静态资产**（非 Pages）
 4. **路径：GitHub 私有仓库 + Workers Builds 自动部署**（push 即部署）
