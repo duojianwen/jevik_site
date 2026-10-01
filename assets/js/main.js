@@ -2,17 +2,43 @@
 (function(){
   document.documentElement.classList.add("js");
   applyLang(currentLang());
-  document.querySelectorAll("[data-lang-toggle]").forEach(b=>{
-    b.addEventListener("click",()=>applyLang(document.documentElement.lang==="en"?"zh":"en"));
+  document.querySelectorAll("[data-lang-toggle]").forEach(sw=>{
+    sw.querySelectorAll("[data-lang]").forEach(button=>{
+      button.addEventListener("click",()=>applyLang(button.getAttribute("data-lang")));
+    });
+  });
+
+  // One navigation contract for every page, independent of the original template variant.
+  const NAV_ITEMS=[
+    ["index.html","nav.home"],["home-alt.html","nav.work"],["projects.html","nav.projects"],
+    ["blog.html","nav.blog"],["about.html","nav.about"],["contact.html","nav.contact"]
+  ];
+  // 2026-09-30 朵教主决策:去掉当前页高亮定位功能,导航词条一律中性
+  const makeLink=([href,key])=>{
+    const link=document.createElement("a");
+    link.href=href;link.dataset.i18n=key;link.textContent=__t(key);
+    return link;
+  };
+  document.querySelectorAll(".nav-links").forEach(menu=>{
+    menu.replaceChildren(...NAV_ITEMS.map(makeLink));
+  });
+  document.querySelectorAll(".mobile-menu").forEach(menu=>{
+    const language=menu.querySelector(".lang-switch");
+    menu.replaceChildren(...(language?[language]:[]),...NAV_ITEMS.map(makeLink));
   });
 
   // mobile menu
   document.querySelectorAll("[data-burger]").forEach(btn=>{
+    btn.setAttribute("aria-expanded","false");
     btn.addEventListener("click",()=>{
       const nav=btn.closest(".nav");
-      if(nav)nav.classList.toggle("open");
+      if(nav){const open=nav.classList.toggle("open");btn.setAttribute("aria-expanded",String(open));}
     });
   });
+  document.querySelectorAll(".mobile-menu a").forEach(link=>link.addEventListener("click",()=>{
+    const nav=link.closest(".nav"),btn=nav?.querySelector("[data-burger]");
+    nav?.classList.remove("open");btn?.setAttribute("aria-expanded","false");
+  }));
 
   // reveal on scroll
   const io=new IntersectionObserver(es=>{
@@ -27,7 +53,8 @@
       pills.forEach(x=>x.classList.remove("active"));
       p.classList.add("active");
       const f=p.getAttribute("data-filter");
-      document.querySelectorAll("[data-cat]").forEach(card=>{
+      const scope=group.closest("main,section,body");
+      scope.querySelectorAll("[data-cat]").forEach(card=>{
         const cats=(card.getAttribute("data-cat")||"").split(/\s+/);
         card.style.display=(f==="all"||cats.includes(f))?"":"none";
       });
@@ -52,27 +79,10 @@
       if(!ok)return;
       const subject=encodeURIComponent("Website inquiry from "+name);
       const body=encodeURIComponent("Name: "+name+"\nEmail: "+email+"\n\n"+msg);
-      window.location.href="mailto:hello@jevik.dev?subject="+subject+"&body="+body;
+      window.location.href="mailto:duojianwen@gmail.com?subject="+subject+"&body="+body;
     });
     ["name","email","message"].forEach(n=>{
       const f=form[n];if(f)f.addEventListener("input",()=>show(n,""));
     });
   }
-
-  // ripple on primary buttons: white wave on gradient/chrome fills,
-  // translucent blue on outline buttons (white would be invisible there)
-  document.addEventListener("pointerdown",e=>{
-    const t=e.target.closest(".btn");
-    if(!t)return;
-    const r=t.getBoundingClientRect(),d=Math.max(r.width,r.height)*2.1;
-    const s=document.createElement("span");
-    const rgb=t.classList.contains("btn-outline")?"63,140,255":"255,255,255";
-    s.className="ripple";
-    s.style.cssText="width:"+d+"px;height:"+d+"px;left:"+(e.clientX-r.left-d/2)+"px;"+
-      "top:"+(e.clientY-r.top-d/2)+"px;background:rgba("+rgb+",.45)";
-    t.appendChild(s);
-    s.offsetWidth; // force reflow so the scale transition runs
-    s.style.transform="scale(1)";s.style.opacity="0";
-    s.addEventListener("transitionend",()=>s.remove(),{once:true});
-  });
 })();

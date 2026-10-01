@@ -4,8 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23ff8a3d'/%3E%3Cstop offset='1' stop-color='%233f8cff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Ctext x='32' y='44' font-family='sans-serif' font-weight='800' font-size='36' fill='white' text-anchor='middle'%3EJ%3C/text%3E%3C/svg%3E">
-<title>Jevik — Developer & Creative Engineer</title>
-<meta name="description" content="Jevik — 50+ projects delivered, 3+ years experience, 20+ clients worldwide.">
+<title data-i18n="meta.altT">杰维克 Jevik — 后端开发、大模型应用开发和AI内容创作者</title>
+<meta name="description" content="Jevik — 交付 50+ 项目、3+ 年经验、服务全球 20+ 客户。" data-i18n-content="meta.altD">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="杰维克 Jevik">
+<meta property="og:title" content="杰维克 Jevik — 后端开发、大模型应用开发和AI内容创作者" data-i18n-content="meta.altT">
+<meta property="og:description" content="Jevik — 交付 50+ 项目、3+ 年经验、服务全球 20+ 客户。" data-i18n-content="meta.altD">
+<meta property="og:url" content="__SITE_URL__/home-alt">
+<meta property="og:image" content="__SITE_URL__/assets/img/hero-3d.png">
+<meta name="twitter:card" content="summary_large_image">
+
 <link rel="stylesheet" href="assets/fonts/fonts.css">
 <link rel="stylesheet" href="assets/css/main.css">
 <style>
@@ -19,28 +27,35 @@
 </head>
 <body>
 <nav class="nav nav-classic"><div class="wrap"><div class="nav-inner">
-  <a class="nav-logo" href="index.html">
-    <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="15" cy="20" r="10" stroke="url(#rg1)" stroke-width="5"/><circle cx="25" cy="20" r="10" stroke="url(#rg2)" stroke-width="5"/><defs><linearGradient id="rg1" x1="5" y1="10" x2="25" y2="30"><stop stop-color="#ff8a3d"/><stop offset="1" stop-color="#c9d2e8"/></linearGradient><linearGradient id="rg2" x1="15" y1="10" x2="35" y2="30"><stop stop-color="#8fa0c8"/><stop offset="1" stop-color="#3f8cff"/></linearGradient></defs></svg>
-    Jevik</a>
+  <a class="nav-logo" href="index.html" aria-label="杰维克 Jevik — Home"><svg class="cube" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><defs><linearGradient id="cb1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffd9b8"/><stop offset="1" stop-color="#ff8a3d"/></linearGradient><linearGradient id="cb2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9db8f0"/><stop offset="1" stop-color="#3f8cff"/></linearGradient><linearGradient id="cb3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e8edf7"/><stop offset="1" stop-color="#a9b4d2"/></linearGradient></defs><polygon points="24,4 42,14 24,24 6,14" fill="url(#cb1)"/><polygon points="6,14 24,24 24,44 6,34" fill="url(#cb2)"/><polygon points="42,14 24,24 24,44 42,34" fill="url(#cb3)"/></svg><span class="brand-zh">杰维克</span><span class="brand-en">Jevik</span></a>
   <div class="nav-links">
-    <a href="about.html" data-i18n="nav.about">About</a>
-    <a href="home-alt.html" data-i18n="nav.work">Work</a>
-    <a href="projects.html" class="on" data-i18n="nav.projects">Projects</a>
-    <a href="blog.html" data-i18n="nav.blog">Blog</a>
-    <a href="contact.html" data-i18n="nav.contact">Contact</a>
+    <a href="about.html" data-i18n="nav.about">关于</a>
+    <a href="home-alt.html" data-i18n="nav.work">工作</a>
+    <a href="projects.html" data-i18n="nav.projects">项目</a>
+    <a href="blog.html" data-i18n="nav.blog">博客</a>
+    <a href="contact.html" data-i18n="nav.contact">联系</a>
   </div>
   <div style="display:flex;gap:10px;align-items:center">
-    <button class="lang-btn" data-lang-toggle>中文</button>
-    <a class="btn btn-grad hide-m" href="contact.html" data-i18n="nav.hire" style="padding:12px 28px">Hire Me</a>
+    <div class="lang-switch ls-top" data-lang-toggle>
+      <span class="ls-slider" aria-hidden="true"></span>
+      <button type="button" data-lang="zh" class="active" aria-pressed="true">中</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+    <a class="btn btn-grad hide-m" href="contact.html" data-i18n="nav.hire" style="padding:12px 28px">聘用我</a>
     <button class="burger" data-burger aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
   <div class="mobile-menu">
-    <a href="about.html" data-i18n="nav.about">About</a>
-    <a href="home-alt.html" data-i18n="nav.work">Work</a>
-    <a href="projects.html" data-i18n="nav.projects">Projects</a>
-    <a href="blog.html" data-i18n="nav.blog">Blog</a>
-    <a href="contact.html" data-i18n="nav.contact">Contact</a>
-    <a href="contact.html" data-i18n="nav.hire">Hire Me</a>
+    <div class="lang-switch" data-lang-toggle>
+      <span class="ls-slider" aria-hidden="true"></span>
+      <button type="button" data-lang="zh" class="active" aria-pressed="true">中</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+    <a href="about.html" data-i18n="nav.about">关于</a>
+    <a href="home-alt.html" data-i18n="nav.work">工作</a>
+    <a href="projects.html" data-i18n="nav.projects">项目</a>
+    <a href="blog.html" data-i18n="nav.blog">博客</a>
+    <a href="contact.html" data-i18n="nav.contact">联系</a>
+    <a href="contact.html" data-i18n="nav.hire">聘用我</a>
   </div>
 </div></div></nav>
 
@@ -51,46 +66,47 @@
   <div class="bubble" style="width:56px;height:56px;right:12%;top:34%"></div>
   <div class="bubble" style="width:84px;height:84px;left:8%;bottom:8%"></div>
   <div class="bubble" style="width:44px;height:44px;right:20%;bottom:2%"></div>
-  <div class="orbit"></div><div class="orbit o2"></div>
-  <div class="mega">Jevik</div>
+  <div class="glass-cube"></div>
+  <h1 class="chrome-text" data-i18n="nav.work">工作</h1>
+  <p class="lede" data-i18n="meta.altD">杰维克 — 交付 50+ 项目、3+ 年经验、服务全球 20+ 客户。</p>
 </header>
 
 <main class="wrap">
   <div class="stats-bar rv">
-    <div class="stat"><div class="num">50+</div><div class="lbl" data-i18n="alt.s1">Projects Delivered</div></div>
-    <div class="stat"><div class="num">3+</div><div class="lbl" data-i18n="alt.s2">Years Experience</div></div>
-    <div class="stat"><div class="num">20+</div><div class="lbl" data-i18n="alt.s3">Clients Worldwide</div></div>
-    <div class="stat"><div class="num">99%</div><div class="lbl" data-i18n="alt.s4">Uptime &amp; Reliability</div></div>
+    <div class="stat"><div class="num">50+</div><div class="lbl" data-i18n="alt.s1">交付项目</div></div>
+    <div class="stat"><div class="num">3+</div><div class="lbl" data-i18n="alt.s2">年经验</div></div>
+    <div class="stat"><div class="num">20+</div><div class="lbl" data-i18n="alt.s3">全球客户</div></div>
+    <div class="stat"><div class="num">99%</div><div class="lbl" data-i18n="alt.s4">可用性与可靠性</div></div>
   </div>
 
   <section style="padding-bottom:70px">
     <div class="section-head rv">
-      <h2 data-i18n="alt.featured">Featured Projects</h2>
-      <a class="link-arrow" href="projects.html"><span data-i18n="alt.viewAll">View All Projects</span> →</a>
+      <h2 data-i18n="alt.featured">精选项目</h2>
+      <a class="link-arrow" href="projects.html"><span data-i18n="alt.viewAll">查看全部项目</span> →</a>
     </div>
     <div class="feat-grid">
       <a class="feat-card card-hover rv" href="project-detail.html">
         <div class="shot"><span class="tag">Web App</span><img src="assets/img/thumb-pipeline.png" alt="Orbit Dashboard"></div>
-        <h3 data-i18n="alt.f1t">Orbit Dashboard — Analytics Platform</h3>
-        <p data-i18n="alt.f1d">Real-time data insights with custom charts &amp; live metrics</p>
+        <h3 data-i18n="alt.f1t">Orbit Dashboard — 分析平台</h3>
+        <p data-i18n="alt.f1d">实时数据洞察，自定义图表与实时指标</p>
       </a>
       <a class="feat-card card-hover rv" href="project-detail.html">
         <div class="shot"><span class="tag">API / Backend</span><img src="assets/img/detail-3d.png" alt="Aether API"></div>
-        <h3 data-i18n="alt.f2t">Aether API — Realtime Backend</h3>
-        <p data-i18n="alt.f2d">High-performance REST API built with Node &amp; Go, scalable services</p>
+        <h3 data-i18n="alt.f2t">Aether API — 实时后端</h3>
+        <p data-i18n="alt.f2d">基于 Node 与 Go 的高性能 REST API，可扩展服务</p>
       </a>
       <a class="feat-card card-hover rv" href="project-detail.html">
         <div class="shot" style="padding:18px 0"><span class="tag">Mobile</span>
           <div class="phone-mock"><div class="scr"><div class="bar o" style="width:70%"></div><div class="bar"></div><div class="bar" style="width:85%"></div><div class="bar o" style="width:55%"></div><div class="bar"></div></div></div>
         </div>
-        <h3 data-i18n="alt.f3t">Nova Mobile — Cross-platform App</h3>
-        <p data-i18n="alt.f3d">iOS &amp; Android app for productivity, 4.8★ rating on stores</p>
+        <h3 data-i18n="alt.f3t">Nova Mobile — 跨平台应用</h3>
+        <p data-i18n="alt.f3d">iOS 与 Android 效率应用，商店评分 4.8★</p>
       </a>
     </div>
   </section>
 </main>
 
-<footer class="footer-line wrap">© 2024 Jevik · <span data-i18n="home.builtWith">Built with Next.js &amp; Tailwind</span> · <a href="#">Privacy</a> · <a href="#">Credits</a></footer>
+<footer class="footer-line wrap">© 2026 杰维克 Jevik · <span data-i18n="home.builtWith">基于 Next.js 与 Tailwind 构建</span> · <a href="#">Privacy</a> · <a href="#">Credits</a></footer>
 <script src="assets/js/i18n.js"></script>
 <script src="assets/js/main.js"></script>
 </body>
